@@ -1,8 +1,13 @@
+import datetime
+
 from tkinter import *
 from PIL import ImageTk, Image
+from tkinter import messagebox
+
 
 BUTTON_WIDHT_HEIGHT_MAIN_FRAME = (25, 2)
 BUTTONWIDTH_TOPLEVELS = 18
+
 
 class App:
 
@@ -35,13 +40,75 @@ class App:
 
     def PrufungsverwaltungWindow(self):
 
+        def prufung_anlegen_callback():
+            prufung_anlegen = (entry_prufungsnummer.get(), entry_prufungstitel.get(), entry_prufungsdatum.get())
+
+            prufungsnummer_evaluierung = False
+            prufungstitel_evaluierung = False
+            prufungsdatum_evaluierung = False
+
+
+            # Überprüfung der Prüfungsnummer
+            try:
+                int(prufung_anlegen[0])
+                prufungsnummer_evaluierung = True
+
+            except (ValueError, TypeError):
+                pass
+
+            # Überprüfung Prüfungstitel
+            if str(prufung_anlegen[1]).istitle():
+                prufungstitel_evaluierung = True
+
+
+            # Überprüfung der Prüfungsdatum
+            prufungsdatum = prufung_anlegen[2]
+
+            try:
+
+                # Überprüfung des Datumformats
+                parts = str(prufungsdatum).split("-")
+                prufungsdatum_evaluiert = datetime.datetime(day=int(parts[0]), month=int(parts[1]), year=int(parts[2]))
+
+                # Überprüfung ob der Datum in der Zukunft liegt
+                heute = datetime.datetime.now()
+
+                if (prufungsdatum_evaluiert < heute):
+                    pass
+
+                else:
+                    prufungsdatum_evaluierung = True
+
+            except (ValueError, IndexError):
+                pass
+
+            if prufungsnummer_evaluierung == False:
+                messagebox.showwarning("Fehler", "Bitte geben Sie nur Zahlen ein.")
+
+            if prufungstitel_evaluierung == False:
+                messagebox.showwarning("Fehler", "Bitte achten Sie auf Groß- und Kleinschreibung.")
+
+            if prufungsdatum_evaluierung == False:
+                messagebox.showwarning("Fehler", "Bitte geben Sie ein gültiges Datum ein. Achten Sie darauf, dass der Datum in der Zukunft liegt.")
+
+            # Wenn alle Überprüfungen True sind, wird der Eintrag in der Datenbank eingeschrieben
+            if (prufungsnummer_evaluierung == True) and (prufungstitel_evaluierung == True) and (prufungsdatum_evaluierung == True):
+                messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich angelegt.")
+
+
+        def prufung_loeschen_callback():
+            prufung_zu_loeschen = (prufung_zum_loeschen.get())
+
+            if str(prufung_zu_loeschen) == "Bitte auswählen":
+                messagebox.showwarning("Fehler", "Bitte wählen Sie eine Prüfung aus.")
+
+            else:
+                messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich gelöscht.")
+
+
+
         newwin = Toplevel(root)
 
-        #self.resizen(newwin)
-
-        # Um zu verhindern, dass 1. mehrere Instanzen erstellt werden können und
-        # während dieses Fenster existiert kann man nicht auf andere Fenster zugreifen,
-        # bis dies geschlossen ist
         newwin.grab_set()
         newwin.focus_set()
 
@@ -58,8 +125,8 @@ class App:
 
 
         '''Strings Variables'''
-        variable = StringVar(newwin)
-        variable.set("Bitte auswählen") # default value
+        prufung_zum_loeschen = StringVar(newwin)
+        prufung_zum_loeschen.set("Bitte auswählen") # default value
 
         prefill_prufungsnummer = StringVar(newwin, value='Prüfungsnummer')
 
@@ -69,11 +136,12 @@ class App:
 
 
         '''Buttons'''
-        Button(newwin, text="Prüfung anlegen", width=BUTTONWIDTH_TOPLEVELS).grid(row=4, column=1)
+        Button(newwin, text="Prüfung anlegen", width=BUTTONWIDTH_TOPLEVELS, command=prufung_anlegen_callback).grid(row=4, column=1)
 
-        Button(newwin, text="Prüfung löschen", width=BUTTONWIDTH_TOPLEVELS).grid(row=2, column=4)
+        Button(newwin, text="Prüfung löschen", width=BUTTONWIDTH_TOPLEVELS, command=prufung_loeschen_callback).grid(row=2, column=4)
 
-        OptionMenu(newwin, variable, 1, 2, 3, 4).grid(row=1, column=4)
+        prufung_auswaehlen = OptionMenu(newwin, prufung_zum_loeschen, 1, 2, 3, 4)
+        prufung_auswaehlen.grid(row=1, column=4)
 
 
         '''Entries'''
@@ -126,13 +194,12 @@ class App:
         entry_prufungsdatum.bind("<Button-1>", delete_prufungsdatum_callback)
 
 
+
+
     def StudierendenverwaltungFenster(self):
 
         svf = Toplevel(root)
 
-        # Um zu verhindern, dass 1. mehrere Instanzen erstellt werden können und
-        # während dieses Fenster existiert kann man nicht auf andere Fenster zugreifen,
-        # bis dies geschlossen ist
         svf.grab_set()
         svf.focus_set()
 
@@ -175,10 +242,6 @@ class App:
         nvf.grab_set()
         nvf.focus_set()
 
-        #root.withdraw()
-        # Um zu verhindern, dass 1. mehrere Instanzen erstellt werden können und
-        # während dieses Fenster existiert kann man nicht auf andere Fenster zugreifen,
-        # bis dies geschlossen ist
 
         '''Labels'''
 
@@ -209,20 +272,6 @@ class App:
         Button(nvf, text="Note löschen", width=BUTTONWIDTH_TOPLEVELS).grid(row=3, column=4)
 
         Button(nvf, text="Hauptmenü", width=BUTTONWIDTH_TOPLEVELS).grid(row=4, column=4)
-
-        #def closing():
-
-#            root.deiconify()
- #           nvf.destroy()
-
-#        nvf.protocol("WM_DELETE_WINDOW", closing)
-
-
-    #def resizen(self, toplevel_window):
-    #    #toplevel_window.geometry("850x200")
-    #    #toplevel_window.resizable(0,0)
-
-     #   return toplevel_window
 
 
 
