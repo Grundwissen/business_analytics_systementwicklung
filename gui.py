@@ -1,5 +1,6 @@
 import datetime
 
+
 from tkinter import *
 from PIL import ImageTk, Image
 from tkinter import messagebox
@@ -7,6 +8,7 @@ from tkinter import messagebox
 
 BUTTON_WIDHT_HEIGHT_MAIN_FRAME = (25, 2)
 BUTTONWIDTH_TOPLEVELS = 18
+NoneType = type(None)
 
 
 class App:
@@ -39,6 +41,12 @@ class App:
 
 
     def PrufungsverwaltungWindow(self):
+
+
+        newwin = Toplevel(root)
+
+        newwin.grab_set()
+        newwin.focus_set()
 
         def prufung_anlegen_callback():
             prufung_anlegen = (entry_prufungsnummer.get(), entry_prufungstitel.get(), entry_prufungsdatum.get())
@@ -94,10 +102,11 @@ class App:
             # Wenn alle Überprüfungen True sind, wird der Eintrag in der Datenbank eingeschrieben
             if (prufungsnummer_evaluierung == True) and (prufungstitel_evaluierung == True) and (prufungsdatum_evaluierung == True):
                 messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich angelegt.")
+                #hier Datenbankeintrag...
 
 
         def prufung_loeschen_callback():
-            prufung_zu_loeschen = (prufung_zum_loeschen.get())
+            prufung_zu_loeschen = prufung_zum_loeschen.get()
 
             if str(prufung_zu_loeschen) == "Bitte auswählen":
                 messagebox.showwarning("Fehler", "Bitte wählen Sie eine Prüfung aus.")
@@ -105,12 +114,6 @@ class App:
             else:
                 messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich gelöscht.")
 
-
-
-        newwin = Toplevel(root)
-
-        newwin.grab_set()
-        newwin.focus_set()
 
         '''Labels'''
         Label(newwin, text="Prüfungsverwaltung").grid(row=0, column=2)
@@ -194,14 +197,76 @@ class App:
         entry_prufungsdatum.bind("<Button-1>", delete_prufungsdatum_callback)
 
 
-
-
     def StudierendenverwaltungFenster(self):
 
         svf = Toplevel(root)
 
         svf.grab_set()
         svf.focus_set()
+
+        def studierenden_anlegen():
+            student_informationen = (entry_matrikelnummer.get(), entry_vorname.get(), entry_nachname.get(),  entry_geburtstag.get())
+
+            matrikelnummer_evaluierung = False
+            vorname_evaluierung = False
+            nachname_evaluierung = False
+            geburtstag_evaluierung = False
+
+
+            #Überprüfung Matrikelnummer
+            try:
+                matrikelnummer_int = int(student_informationen[0])
+                matrikelnummer_evaluierung = True
+
+            except ValueError:
+                messagebox.showwarning("Fehler", "Bitte geben Sie nur ganze Zahlen ein.")
+
+
+            #Überprüfung Vorname und Nachname
+            if (str(student_informationen[1]).isalnum() == True) and (str(student_informationen[2]).isalnum() == True):
+                vorname_evaluierung = True
+                nachname_evaluierung = True
+
+            else:
+                messagebox.showwarning("Fehler", "Bitte geben richtige Vor- und Nachnamen ein.")
+
+
+            #Überprüfung Geburtstagsdatum
+            try:
+
+                # Überprüfung des Datumformats
+                parts = str(student_informationen[3]).split("-")
+                geburtstag_evaluiert = datetime.datetime(day=int(parts[0]), month=int(parts[1]), year=int(parts[2]))
+
+                # Überprüfung ob der Datum in der Zukunft liegt
+                heute = datetime.datetime.now()
+
+                if (geburtstag_evaluiert > heute):
+                    messagebox.showwarning("Fehler", "Geburtstag liegt in der Zukunft. Bitte geben Sie ein richtiges Datum ein.")
+
+                else:
+                    geburtstag_evaluierung = True
+
+            except (ValueError, IndexError):
+                pass
+
+
+        # Wenn alle Überprüfungen True sind, wird der Eintrag in der Datenbank eingeschrieben
+            if (matrikelnummer_evaluierung == True) and (vorname_evaluierung == True) and (nachname_evaluierung == True) and (geburtstag_evaluierung == True):
+                messagebox.showinfo("Erfolgreich", "Der Studierender wurde erfolgreich angelegt.")
+                #hier Datenbankeintrag...
+
+
+        def studierenden_loeschen():
+            matrikelnummer_zu_loeschen = matrikelnummer_auswahl.get()
+
+            if str(matrikelnummer_zu_loeschen) == "Bitte auswählen":
+                messagebox.showwarning("Fehler", "Bitte wählen Sie eine Matrikelnummer zum Löschen aus.")
+
+            else:
+                messagebox.showinfo("Erfolgreich", "Studierender wurde erfolgreich gelöscht.")
+                # hier DB und Student löschen..
+
 
         '''Labels'''
 
@@ -217,22 +282,88 @@ class App:
 
         Label(svf, text="Matrikelnummer").grid(row=1, column=3)
 
-        entry_matrikelnummer = Entry(svf).grid(row=1, column=1)
 
-        entry_vorname = Entry(svf).grid(row=2, column=1)
+        '''Prefills'''
+        prefill_matrikelnummer = StringVar(svf, value='12345')
 
-        entry_nachname = Entry(svf).grid(row=3, column=1)
+        prefill_vorname = StringVar(svf, value='Max')
 
-        entry_geburtstag = Entry(svf).grid(row=4, column=1)
+        prefill_nachname = StringVar(svf, value='Mustermann')
 
-        variable = StringVar(svf)
-        variable.set("Bitte auswählen") # default value
+        prefill_geburtstag = StringVar(svf, value="DD-MM-YYYY")
 
-        OptionMenu(svf, variable, 1, 2, 3, 4).grid(row=1, column=4)
 
-        Button(svf, text="Studierenden anlegen", width=BUTTONWIDTH_TOPLEVELS).grid(row=5, column=1)
+        '''Entries'''
+        entry_matrikelnummer = Entry(svf, textvariable=prefill_matrikelnummer)
+        entry_matrikelnummer.grid(row=1, column=1)
 
-        Button(svf, text="Studierenden löschen", width=BUTTONWIDTH_TOPLEVELS).grid(row=2, column=4)
+        entry_vorname = Entry(svf, textvariable=prefill_vorname)
+        entry_vorname.grid(row=2, column=1)
+
+        entry_nachname = Entry(svf, textvariable=prefill_nachname)
+        entry_nachname.grid(row=3, column=1)
+
+        entry_geburtstag = Entry(svf, textvariable=prefill_geburtstag)
+        entry_geburtstag.grid(row=4, column=1)
+
+        entry_matrikelnummer.config(fg="grey")
+        entry_vorname.config(fg="grey")
+        entry_nachname.config(fg="grey")
+        entry_geburtstag.config(fg="grey")
+
+
+        def delete_matrikelnummer_callback(event):
+
+            if str(entry_matrikelnummer.get()) == "12345":
+                entry_matrikelnummer.delete(0, END)
+                entry_matrikelnummer.config(fg="black")
+
+            return None
+
+        def delete_vorname_callback(event):
+
+            if str(entry_vorname.get()) == "Max":
+                entry_vorname.delete(0, END)
+                entry_vorname.config(fg="black")
+
+            return None
+
+        def delete_nachname_callback(event):
+
+            if str(entry_nachname.get()) == "Mustermann":
+                entry_nachname.delete(0, END)
+                entry_nachname.config(fg="black")
+
+            return None
+
+
+        def delete_geburtstag_callback(event):
+
+            if str(entry_geburtstag.get()) == "DD-MM-YYYY":
+                entry_geburtstag.delete(0, END)
+                entry_geburtstag.config(fg="black")
+
+            return None
+
+
+        entry_matrikelnummer.bind("<Button-1>", delete_matrikelnummer_callback)
+        entry_vorname.bind("<Button-1>", delete_vorname_callback)
+        entry_nachname.bind("<Button-1>", delete_nachname_callback)
+        entry_geburtstag.bind("<Button-1>", delete_geburtstag_callback)
+
+
+        '''StringVar'''
+        matrikelnummer_auswahl = StringVar(svf)
+        matrikelnummer_auswahl.set("Bitte auswählen") # default value
+
+
+        '''Options'''
+        option_matrikelnummer = OptionMenu(svf, matrikelnummer_auswahl, 1, 2, 3, 4)
+        option_matrikelnummer.grid(row=1, column=4)
+
+        '''Buttons'''
+        Button(svf, text="Studierenden anlegen", width=BUTTONWIDTH_TOPLEVELS, command=studierenden_anlegen).grid(row=5, column=1)
+        Button(svf, text="Studierenden löschen", width=BUTTONWIDTH_TOPLEVELS, command=studierenden_loeschen).grid(row=2, column=4)
 
 
     def NotenVerwaltungsFenster(self):
@@ -241,6 +372,59 @@ class App:
         nvf = Toplevel(root)
         nvf.grab_set()
         nvf.focus_set()
+
+        def note_einspeichern():
+            zu_speichern_note = noten_auswahl.get()
+            matrikelnummer_auswahl_speichern = matrikelnummer.get()
+
+            if str(zu_speichern_note) == "Bitte auswählen" or str(matrikelnummer_auswahl_speichern) == "Bitte auswählen":
+                messagebox.showwarning("Fehler", "Bitte wählen Sie eine Matrikellnummer und eine Prüfung aus.")
+
+            else:
+
+                note = noten_eingabe_uberprufen()
+
+                if isinstance(note, NoneType) == True:
+                    messagebox.showinfo("Fehler", "Bitte geben Sie eine richtige Note ein.")
+
+                elif isinstance(note, float) == True:
+                    messagebox.showinfo("Erfolgreich", "Die Note wurde erfolgreich gepspeichert.")
+                    # hier note in die DB.....
+
+
+        def note_loeschen():
+            zu_loeschen_note = noten_auswahl.get()
+            matrikelnummer_auswahl_speichern = matrikelnummer.get()
+
+            if str(zu_loeschen_note) == "Bitte auswählen" or str(matrikelnummer_auswahl_speichern) == "Bitte auswählen":
+                messagebox.showwarning("Fehler", "Bitte wählen Sie eine Matrikellnummer und eine Prüfung aus.")
+
+            else:
+
+                note = noten_eingabe_uberprufen()
+
+                if isinstance(note, NoneType) == True:
+                    messagebox.showinfo("Fehler", "Bitte geben Sie eine richtige Note ein.")
+
+                elif isinstance(note, float) == True:
+                    messagebox.showinfo("Erfolgreich", "Die Note wurde erfolgreich gelöscht.")
+                    # hier von der DB löschen .....
+
+
+        def noten_eingabe_uberprufen():
+            zu_uberprufen = entry_note.get()
+
+            if "," in zu_uberprufen:
+                zu_uberprufen = str(zu_uberprufen).replace(",", ".")
+
+            try:
+                zu_uberprufen = float(zu_uberprufen)
+
+                return zu_uberprufen
+
+            except ValueError:
+
+                return None
 
 
         '''Labels'''
@@ -253,25 +437,26 @@ class App:
 
         Label(nvf, text="Prüfung").grid(row=1, column=3)
 
-        variable = StringVar(nvf)
-        variable.set("Bitte auswählen") # default value
+        matrikelnummer = StringVar(nvf)
+        matrikelnummer.set("Bitte auswählen") # default value
 
-        OptionMenu(nvf, variable, 1, 2, 3, 4).grid(row=1, column=1)
+        matrikelnummer_auswahl = OptionMenu(nvf, matrikelnummer, 1, 2, 3, 4)
+        matrikelnummer_auswahl.grid(row=1, column=1)
 
-        entry_note = Entry(nvf).grid(row=2, column=1)
+        entry_note = Entry(nvf)
+        entry_note.grid(row=2, column=1)
 
-        Label(nvf, text="Bitte die Note als ganzes Zahl eingeben. 2,3 als 23").grid(row=3, column=1)
+        Label(nvf, text="Note als 2 , 2.0 oder als 2,0 eingeben.").grid(row=3, column=1)
 
-        variable = StringVar(nvf)
-        variable.set("Bitte auswählen") # default value
+        noten_auswahl = StringVar(nvf)
+        noten_auswahl.set("Bitte auswählen") # default value
 
-        prüfung_option = OptionMenu(nvf, variable, 1, 2, 3, 4).grid(row=1, column=4)
+        note_zu_loeschen = OptionMenu(nvf, noten_auswahl, 1, 2, 3, 4)
+        note_zu_loeschen.grid(row=1, column=4)
 
-        Button(nvf, text="Note einspeichern", width=BUTTONWIDTH_TOPLEVELS).grid(row=2, column=4)
+        Button(nvf, text="Note einspeichern", width=BUTTONWIDTH_TOPLEVELS, command=note_einspeichern).grid(row=2, column=4)
 
-        Button(nvf, text="Note löschen", width=BUTTONWIDTH_TOPLEVELS).grid(row=3, column=4)
-
-        Button(nvf, text="Hauptmenü", width=BUTTONWIDTH_TOPLEVELS).grid(row=4, column=4)
+        Button(nvf, text="Note löschen", width=BUTTONWIDTH_TOPLEVELS, command=note_loeschen).grid(row=3, column=4)
 
 
 
@@ -281,5 +466,7 @@ if __name__ == '__main__':
     root.geometry("500x350")
     root.resizable(0,0)
     root.title("Verwaltungssystem")
+    root.lift()
+
     app = App(root)
     root.mainloop()
