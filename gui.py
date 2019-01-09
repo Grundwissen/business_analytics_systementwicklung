@@ -1,5 +1,5 @@
 import datetime
-
+import API
 
 from tkinter import *
 from PIL import ImageTk, Image
@@ -8,7 +8,10 @@ from tkinter import messagebox
 
 BUTTON_WIDHT_HEIGHT_MAIN_FRAME = (25, 2)
 BUTTONWIDTH_TOPLEVELS = 18
+
 NoneType = type(None)
+
+
 
 
 class App:
@@ -40,6 +43,50 @@ class App:
 
 
 
+    def update_dropdowns(self):
+
+        conn = API.DatabaseConnection()
+
+        matrikels = conn.get_matrikelnummer()
+
+        return matrikels
+
+    def student_anlegen(self, info):
+
+        conn = API.DatabaseConnection()
+
+        conn.create_student(info)
+
+        return info
+
+
+    def drop_student(self, info):
+
+        conn = API.DatabaseConnection()
+
+        conn.drop_student(info)
+
+        return info
+
+
+
+
+    def refresh_dropdown(self, optionmenu, auswahl):
+
+        matrikellist = self.update_dropdowns()
+
+        menu = optionmenu['menu']
+        menu.delete(0, "end")
+
+        for name in matrikellist:
+            menu.add_command(label=name, command=lambda name=name: self.selection(name, auswahl))
+
+    def selection(self, name, auswahl) :
+
+        auswahl.set(name)
+
+
+
     def PrufungsverwaltungWindow(self):
 
 
@@ -47,6 +94,8 @@ class App:
 
         newwin.grab_set()
         newwin.focus_set()
+
+
 
         def prufung_anlegen_callback():
             prufung_anlegen = (entry_prufungsnummer.get(), entry_prufungstitel.get(), entry_prufungsdatum.get())
@@ -204,7 +253,10 @@ class App:
         svf.grab_set()
         svf.focus_set()
 
+
         def studierenden_anlegen():
+
+
             student_informationen = (entry_matrikelnummer.get(), entry_vorname.get(), entry_nachname.get(),  entry_geburtstag.get())
 
             matrikelnummer_evaluierung = False
@@ -212,6 +264,8 @@ class App:
             nachname_evaluierung = False
             geburtstag_evaluierung = False
 
+
+            matrikelnummer_int = 0
 
             #Überprüfung Matrikelnummer
             try:
@@ -231,12 +285,15 @@ class App:
                 messagebox.showwarning("Fehler", "Bitte geben richtige Vor- und Nachnamen ein.")
 
 
+            date = 0
+
             #Überprüfung Geburtstagsdatum
             try:
 
                 # Überprüfung des Datumformats
                 parts = str(student_informationen[3]).split("-")
                 geburtstag_evaluiert = datetime.datetime(day=int(parts[0]), month=int(parts[1]), year=int(parts[2]))
+                date = str(geburtstag_evaluiert.date().strftime("%d-%m-%Y"))
 
                 # Überprüfung ob der Datum in der Zukunft liegt
                 heute = datetime.datetime.now()
@@ -253,19 +310,37 @@ class App:
 
         # Wenn alle Überprüfungen True sind, wird der Eintrag in der Datenbank eingeschrieben
             if (matrikelnummer_evaluierung == True) and (vorname_evaluierung == True) and (nachname_evaluierung == True) and (geburtstag_evaluierung == True):
-                messagebox.showinfo("Erfolgreich", "Der Studierender wurde erfolgreich angelegt.")
-                #hier Datenbankeintrag...
+
+                try:
+                    self.student_anlegen((matrikelnummer_int, student_informationen[1]+" "+student_informationen[2], date))
+                    messagebox.showinfo("Erfolgreich", "Der Studierender wurde erfolgreich angelegt.")
+
+                except Exception:
+                    messagebox.showinfo("Failed", "Failed create Student.")
+
+            else:
+
+                 messagebox.showinfo("Fehler", "Bitte füllen Sie alle Felder aus.")
 
 
         def studierenden_loeschen():
             matrikelnummer_zu_loeschen = matrikelnummer_auswahl.get()
+            print(matrikelnummer_zu_loeschen)
 
             if str(matrikelnummer_zu_loeschen) == "Bitte auswählen":
                 messagebox.showwarning("Fehler", "Bitte wählen Sie eine Matrikelnummer zum Löschen aus.")
 
             else:
-                messagebox.showinfo("Erfolgreich", "Studierender wurde erfolgreich gelöscht.")
-                # hier DB und Student löschen..
+                try:
+                    self.drop_student(matrikelnummer_zu_loeschen)
+                    messagebox.showinfo("Erfolgreich", "Studierender wurde erfolgreich gelöscht.")
+
+                    self.refresh_dropdown(option_matrikelnummer, matrikelnummer_auswahl)
+
+
+                except Exception:
+                    messagebox.showinfo("Failed", "Failed drop Student.")
+
 
 
         '''Labels'''
@@ -358,11 +433,13 @@ class App:
 
 
         '''Options'''
-        option_matrikelnummer = OptionMenu(svf, matrikelnummer_auswahl, 1, 2, 3, 4)
+        option_matrikelnummer = OptionMenu(svf, matrikelnummer_auswahl, ())
         option_matrikelnummer.grid(row=1, column=4)
 
+        option_matrikelnummer.bind("<Button-1>", self.refresh_dropdown(option_matrikelnummer, matrikelnummer_auswahl))
+
         '''Buttons'''
-        Button(svf, text="Studierenden anlegen", width=BUTTONWIDTH_TOPLEVELS, command=studierenden_anlegen).grid(row=5, column=1)
+        Button(svf, text="Studierenden anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: combine_update_and_write_commands(studierenden_anlegen(), self.refresh_dropdown(option_matrikelnummer, matrikelnummer_auswahl))).grid(row=5, column=1)
         Button(svf, text="Studierenden löschen", width=BUTTONWIDTH_TOPLEVELS, command=studierenden_loeschen).grid(row=2, column=4)
 
 
@@ -460,6 +537,14 @@ class App:
 
 
 
+def combine_update_and_write_commands(*funcs):
+    def combined_func(*args, **kwargs):
+        for f in funcs:
+            f(*args, **kwargs)
+
+    return combined_func
+
+
 if __name__ == '__main__':
 
     root = Tk()
@@ -470,3 +555,4 @@ if __name__ == '__main__':
 
     app = App(root)
     root.mainloop()
+
