@@ -29,7 +29,7 @@ class App:
         self.slogan = Button(frame, text="Noten eingeben", command=self.NotenVerwaltungsFenster, width=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[0], height=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[1])
         self.slogan.pack(side=BOTTOM,  padx=10, pady=10)
 
-        self.slogan = Button(frame, text="Noten eines Studenten ausgeben", width=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[0], height=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[1])
+        self.slogan = Button(frame, text="Noten eines Studenten ausgeben", command=self.NotenEinesStudentenAusgeben ,width=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[0], height=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[1])
         self.slogan.pack(side=BOTTOM,  padx=10, pady=10)
 
         self.im = Image.open("Ressources/images-12.jpeg")
@@ -37,16 +37,6 @@ class App:
 
         self.panel = Label(root, image = self.photo)
         self.panel.pack(side = "bottom", fill = "both", expand = "yes")
-
-
-
-
-    def combine_update_and_write_commands(*funcs):
-        def combined_func(*args, **kwargs):
-            for f in funcs:
-                f(*args, **kwargs)
-
-        return combined_func
 
 
 
@@ -172,7 +162,7 @@ class App:
 
 
         '''Buttons'''
-        Button(newwin, text="Prüfung anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: self.combine_update_and_write_commands(prufung_anlegen_callback(), API.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen))).grid(row=4, column=1)
+        Button(newwin, text="Prüfung anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: API.combine_update_and_write_commands(prufung_anlegen_callback(), API.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen))).grid(row=4, column=1)
 
         Button(newwin, text="Prüfung löschen", width=BUTTONWIDTH_TOPLEVELS, command=prufung_loeschen_callback).grid(row=2, column=4)
 
@@ -429,7 +419,7 @@ class App:
         option_matrikelnummer.bind("<Button-1>", API.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl))
 
         '''Buttons'''
-        Button(svf, text="Studierenden anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: self.combine_update_and_write_commands(studierenden_anlegen(), API.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl))).grid(row=5, column=1)
+        Button(svf, text="Studierenden anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: API.combine_update_and_write_commands(studierenden_anlegen(), API.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl))).grid(row=5, column=1)
         Button(svf, text="Studierenden löschen", width=BUTTONWIDTH_TOPLEVELS, command=studierenden_loeschen).grid(row=2, column=4)
 
 
@@ -546,6 +536,59 @@ class App:
 
         Button(nvf, text="Note löschen", width=BUTTONWIDTH_TOPLEVELS, command=note_loeschen).grid(row=3, column=4)
 
+
+    def NotenEinesStudentenAusgeben(self):
+
+        NeSa = Toplevel(root)
+
+        NeSa.geometry("213x140")
+        NeSa.resizable(0,0)
+        NeSa.grab_set()
+        NeSa.focus_set()
+
+
+        def matrikel_auswahl():
+            matrikel = mtr_auswahl.get()
+            print(matrikel)
+
+            if str(matrikel) == "Bitte auswählen":
+                messagebox.showwarning("Fehler", "Bitte wählen Sie eine Matrikellnummer aus.")
+
+            else:
+
+                try:
+                    status = API.generate_pdf(matrikel)
+                    if status == True:
+                        messagebox.showinfo("Erfolgreich", "Das PDF wurde erfolgreich erstellt.")
+
+                    elif status == False:
+                        messagebox.showinfo("Fehler", "Das PDF konnte nicht erstellt werden.")
+
+
+                except Exception:
+                     messagebox.showwarning("Failed", "Failed to generate.")
+
+
+
+
+        '''Labels'''
+        Label(NeSa, text=" Notenspiegel eines Studenten").grid(row=0, column=0)
+        Label(NeSa, text=" ").grid(row=1, column=0)
+        Label(NeSa, text=" Matrikelnummer des Studenten").grid(row=2, column=0)
+
+        '''Optionmenu'''
+        mtr_auswahl = StringVar(NeSa)
+        mtr_auswahl.set("Bitte auswählen") # default value
+
+
+        mtr_option = OptionMenu(NeSa, mtr_auswahl,())
+        mtr_option.grid(row=3, column=0)
+
+        mtr_option.bind("<Button-1>", API.refresh_matrikel_dropdown(mtr_option, mtr_auswahl))
+
+        '''Buttons'''
+
+        Button(NeSa, text="PDF generieren", width=BUTTONWIDTH_TOPLEVELS, command=matrikel_auswahl).grid(row=4, column=0)
 
 
 if __name__ == '__main__':

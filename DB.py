@@ -128,6 +128,18 @@ class DatabaseConnection:
 
         return self.cursor.statusmessage
 
+    def get_all_noten_by_student(self, info):
+        get_notes = "SELECT * FROM \"Notenliste\" WHERE \"matNr\" = {};".format(info)
+        self.cursor.execute(get_notes)
+
+        noten = self.cursor.fetchall()
+
+        noten = [note[0] for note in noten]
+
+        print(noten)
+
+        return noten
+
 
 if __name__== '__main__':
     database_connection = DatabaseConnection()

@@ -1,4 +1,5 @@
 import DB
+from fpdf import FPDF
 
 conn = DB.DatabaseConnection()
 
@@ -91,3 +92,55 @@ def delete_note(info):
     cursor_status = conn.delete_note(info)
 
     return cursor_status
+
+
+def combine_update_and_write_commands(*funcs):
+
+    def combined_func(*args, **kwargs):
+
+        for f in funcs:
+            f(*args, **kwargs)
+
+    return combined_func
+
+
+def generate_pdf(info):
+
+    noten = conn.get_all_noten_by_student(info)
+
+    try:
+
+        pdf = FPDF(orientation="P", unit="mm", format="A4")
+        # Eine Seite hinzufügen:
+        pdf.add_page()
+        # Schriftart festlegen:
+        pdf.set_font("Arial", size=18)
+        #Logo
+        pdf.image("Ressources/images-12.jpeg")
+        # Überschrift
+        pdf.cell(30, 10, 'Notenliste')
+        pdf.ln(10)
+        #Name
+        pdf.set_font("Arial", size=12)
+        pdf.cell(30, 10, 'Name', 1, 0, 'C')
+        pdf.ln(15)
+        #Noten
+        pdf.cell(30, 10, 'Auflistung der Noten: ')
+        pdf.ln(10)
+
+        for i in noten:
+            pdf.write(5, str(i))
+            pdf.ln(10)
+
+        pdf.output("Notenspiegel-{}.pdf".format(info))
+
+        return True
+
+    except Exception:
+
+        return False
+
+
+
+
+
