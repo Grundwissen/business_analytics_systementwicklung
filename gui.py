@@ -11,9 +11,6 @@ BUTTONWIDTH_TOPLEVELS = 18
 
 NoneType = type(None)
 
-
-
-
 class App:
 
     def __init__(self, master):
@@ -35,98 +32,11 @@ class App:
         self.slogan = Button(frame, text="Noten eines Studenten ausgeben", width=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[0], height=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[1])
         self.slogan.pack(side=BOTTOM,  padx=10, pady=10)
 
-        self.im = Image.open("images-12.jpeg")
+        self.im = Image.open("Ressources/images-12.jpeg")
         self.photo = ImageTk.PhotoImage(self.im)
 
         self.panel = Label(root, image = self.photo)
         self.panel.pack(side = "bottom", fill = "both", expand = "yes")
-
-
-
-    def update_matrikel_dropdowns(self):
-
-        conn = API.DatabaseConnection()
-
-        matrikels = conn.get_matrikelnummer()
-
-        return matrikels
-
-
-    def refresh_matrikel_dropdown(self, optionmenu, auswahl):
-
-        matrikellist = self.update_matrikel_dropdowns()
-
-        menu = optionmenu['menu']
-        menu.delete(0, "end")
-
-        for name in matrikellist:
-            menu.add_command(label=name, command=lambda name=name: self.selection(name, auswahl))
-
-
-    def selection(self, name, auswahl) :
-
-        auswahl.set(name)
-
-
-    def student_anlegen(self, info):
-
-        conn = API.DatabaseConnection()
-
-        conn.create_student(info)
-
-        return info
-
-
-    def drop_student(self, info):
-
-        conn = API.DatabaseConnection()
-
-        conn.drop_student(info)
-
-        return info
-
-
-    def update_klausur_dropdowns(self):
-
-        conn = API.DatabaseConnection()
-
-        klausuren = conn.get_klausurnummer()
-
-        return klausuren
-
-
-    def refresh_klausur_dropdown(self, optionmenu, auswahl):
-
-        klausurlist = self.update_klausur_dropdowns()
-
-        menu = optionmenu['menu']
-        menu.delete(0, "end")
-
-        for name in klausurlist:
-            menu.add_command(label=name, command=lambda name=name: self.kl_selection(name, auswahl))
-
-
-    def kl_selection(self, name, auswahl) :
-
-        auswahl.set(name)
-
-
-    def klausur_anlegen(self, info):
-
-        conn = API.DatabaseConnection()
-
-        conn.create_klausur(info)
-
-        return info
-
-
-    def drop_klausur(self, info):
-
-        conn = API.DatabaseConnection()
-
-        conn.drop_klausur(info)
-
-        return info
 
 
 
@@ -205,7 +115,7 @@ class App:
 
                 try:
 
-                    self.klausur_anlegen(prufung_anlegen)
+                    API.klausur_anlegen(prufung_anlegen)
                     messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich angelegt.")
 
 
@@ -228,10 +138,10 @@ class App:
 
                 try:
 
-                    self.drop_klausur(prufung_zu_loeschen)
+                    API.drop_klausur(prufung_zu_loeschen)
                     messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich gelöscht.")
 
-                    self.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen)
+                    API.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen)
 
                 except Exception:
 
@@ -262,7 +172,7 @@ class App:
 
 
         '''Buttons'''
-        Button(newwin, text="Prüfung anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: self.combine_update_and_write_commands(prufung_anlegen_callback(), self.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen))).grid(row=4, column=1)
+        Button(newwin, text="Prüfung anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: self.combine_update_and_write_commands(prufung_anlegen_callback(), API.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen))).grid(row=4, column=1)
 
         Button(newwin, text="Prüfung löschen", width=BUTTONWIDTH_TOPLEVELS, command=prufung_loeschen_callback).grid(row=2, column=4)
 
@@ -271,7 +181,7 @@ class App:
         prufungOptionMenu = OptionMenu(newwin, prufung_zum_loeschen, ())
         prufungOptionMenu.grid(row=1, column=4)
 
-        prufungOptionMenu.bind("<Button-1>", self.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen))
+        prufungOptionMenu.bind("<Button-1>", API.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen))
 
 
 
@@ -392,7 +302,7 @@ class App:
             if (matrikelnummer_evaluierung == True) and (vorname_evaluierung == True) and (nachname_evaluierung == True) and (geburtstag_evaluierung == True):
 
                 try:
-                    self.student_anlegen((matrikelnummer_int, student_informationen[1]+" "+student_informationen[2], date))
+                    API.student_anlegen((matrikelnummer_int, student_informationen[1]+" "+student_informationen[2], date))
                     messagebox.showinfo("Erfolgreich", "Der Studierender wurde erfolgreich angelegt.")
 
                 except Exception:
@@ -412,10 +322,10 @@ class App:
 
             else:
                 try:
-                    self.drop_student(matrikelnummer_zu_loeschen)
+                    API.drop_student(matrikelnummer_zu_loeschen)
                     messagebox.showinfo("Erfolgreich", "Studierender wurde erfolgreich gelöscht.")
 
-                    self.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl)
+                    API.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl)
 
 
                 except Exception:
@@ -516,10 +426,10 @@ class App:
         option_matrikelnummer = OptionMenu(svf, matrikelnummer_auswahl, ())
         option_matrikelnummer.grid(row=1, column=4)
 
-        option_matrikelnummer.bind("<Button-1>", self.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl))
+        option_matrikelnummer.bind("<Button-1>", API.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl))
 
         '''Buttons'''
-        Button(svf, text="Studierenden anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: self.combine_update_and_write_commands(studierenden_anlegen(), self.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl))).grid(row=5, column=1)
+        Button(svf, text="Studierenden anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: self.combine_update_and_write_commands(studierenden_anlegen(), API.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl))).grid(row=5, column=1)
         Button(svf, text="Studierenden löschen", width=BUTTONWIDTH_TOPLEVELS, command=studierenden_loeschen).grid(row=2, column=4)
 
 
@@ -531,10 +441,10 @@ class App:
         nvf.focus_set()
 
         def note_einspeichern():
-            zu_speichern_note = noten_auswahl.get()
+            prufung = noten_auswahl.get()
             matrikelnummer_auswahl_speichern = matrikelnummer.get()
 
-            if str(zu_speichern_note) == "Bitte auswählen" or str(matrikelnummer_auswahl_speichern) == "Bitte auswählen":
+            if str(prufung) == "Bitte auswählen" or str(matrikelnummer_auswahl_speichern) == "Bitte auswählen":
                 messagebox.showwarning("Fehler", "Bitte wählen Sie eine Matrikellnummer und eine Prüfung aus.")
 
             else:
@@ -545,27 +455,44 @@ class App:
                     messagebox.showinfo("Fehler", "Bitte geben Sie eine richtige Note ein.")
 
                 elif isinstance(note, float) == True:
-                    messagebox.showinfo("Erfolgreich", "Die Note wurde erfolgreich gepspeichert.")
-                    # hier note in die DB.....
+
+                    try:
+
+                        API.insert_note((note, prufung, matrikelnummer_auswahl_speichern))
+                        messagebox.showinfo("Erfolgreich", "Die Note wurde erfolgreich gepspeichert.")
+
+                    except Exception:
+                        messagebox.showwarning("Failed", "Failed insert Note.")
+
+
 
 
         def note_loeschen():
-            zu_loeschen_note = noten_auswahl.get()
-            matrikelnummer_auswahl_speichern = matrikelnummer.get()
+            prufung = noten_auswahl.get()
+            matrikelnummer_auswahl = matrikelnummer.get()
 
-            if str(zu_loeschen_note) == "Bitte auswählen" or str(matrikelnummer_auswahl_speichern) == "Bitte auswählen":
+            if str(prufung) == "Bitte auswählen" or str(matrikelnummer_auswahl) == "Bitte auswählen":
                 messagebox.showwarning("Fehler", "Bitte wählen Sie eine Matrikellnummer und eine Prüfung aus.")
 
             else:
 
-                note = noten_eingabe_uberprufen()
+                try:
 
-                if isinstance(note, NoneType) == True:
-                    messagebox.showinfo("Fehler", "Bitte geben Sie eine richtige Note ein.")
+                    status = API.delete_note((prufung, matrikelnummer_auswahl))
 
-                elif isinstance(note, float) == True:
-                    messagebox.showinfo("Erfolgreich", "Die Note wurde erfolgreich gelöscht.")
-                    # hier von der DB löschen .....
+                    if str(status) == "DELETE 1":
+                        messagebox.showinfo("Erfolgreich", "Die Note wurde erfolgreich gelöscht.")
+
+                    elif str(status) == "DELETE 0":
+                        messagebox.showinfo("Fehler", "Diese Kombination an Matrikelnummer und Prüfungsnummer existiert nicht. Bitte überprüfen Sie Ihre Angaben.")
+
+                    else:
+                        messagebox.showinfo("Fehler", "Es ist ein allg. Fehler entstanden. Bitte wenden Sie sich an die Entwickler.")
+
+
+                except Exception:
+                     messagebox.showwarning("Failed", "Failed delete Note.")
+
 
 
         def noten_eingabe_uberprufen():
@@ -597,8 +524,10 @@ class App:
         matrikelnummer = StringVar(nvf)
         matrikelnummer.set("Bitte auswählen") # default value
 
-        matrikelnummer_auswahl = OptionMenu(nvf, matrikelnummer, 1, 2, 3, 4)
+        matrikelnummer_auswahl = OptionMenu(nvf, matrikelnummer, ())
         matrikelnummer_auswahl.grid(row=1, column=1)
+
+        matrikelnummer_auswahl.bind("<Button-1>", API.refresh_matrikel_dropdown(matrikelnummer_auswahl, matrikelnummer))
 
         entry_note = Entry(nvf)
         entry_note.grid(row=2, column=1)
@@ -608,17 +537,14 @@ class App:
         noten_auswahl = StringVar(nvf)
         noten_auswahl.set("Bitte auswählen") # default value
 
-        note_zu_loeschen = OptionMenu(nvf, noten_auswahl, 1, 2, 3, 4)
-        note_zu_loeschen.grid(row=1, column=4)
+        prufung_auswahl = OptionMenu(nvf, noten_auswahl, 1, 2, 3, 4)
+        prufung_auswahl.grid(row=1, column=4)
+
+        prufung_auswahl.bind("<Button-1>", API.refresh_klausur_dropdown(prufung_auswahl, noten_auswahl))
 
         Button(nvf, text="Note einspeichern", width=BUTTONWIDTH_TOPLEVELS, command=note_einspeichern).grid(row=2, column=4)
 
         Button(nvf, text="Note löschen", width=BUTTONWIDTH_TOPLEVELS, command=note_loeschen).grid(row=3, column=4)
-
-
-
-
-
 
 
 
