@@ -1,7 +1,4 @@
 import psycopg2
-from pprint import pprint
-
-
 
 class DatabaseConnection:
     def __init__(self):
@@ -12,7 +9,7 @@ class DatabaseConnection:
             print("Opened database successfully")
 
         except:
-            pprint("Cannot connect to datase")
+            print("Cannot connect to datase")
 
     def create_table(self):
         create_table_command = """CREATE TABLE public."Klausur"
@@ -65,25 +62,6 @@ class DatabaseConnection:
 
         self.cursor.execute(create_table_command)
 
-    def insert_new(self):
-        insert_command = "INSERT INTO \"Notenliste\"(\"Note\", \"Datum\", \"pNr\", \"matNr\") VALUES (32, to_timestamp('16-05-2021', 'dd-mm-yyyy'), 2, 2);"
-        pprint(insert_command)
-        self.cursor.execute(insert_command)
-
-    def query_all(self):
-        self.cursor.execute("SELECT * FROM notenliste")
-        noten = self.cursor.fetchall()
-        for note in noten:
-            print("  ", note[0])
-
-    def update_record(self):
-        update_command = "UPDATE notenliste SET ***** WHERE id=*****"
-        self.cursor.execute(update_command)
-
-    def drop_table(self):
-        drop_table_command = "DROP TABLE notenliste"
-        self.cursor.execute(drop_table_command)
-
     def get_matrikelnummer(self):
         get_matrikeln = "SELECT \"matNr\" from \"Student\""
         self.cursor.execute(get_matrikeln)
@@ -129,20 +107,36 @@ class DatabaseConnection:
         return self.cursor.statusmessage
 
     def get_all_noten_by_student(self, info):
-        get_notes = "SELECT * FROM \"Notenliste\" WHERE \"matNr\" = {};".format(info)
-        self.cursor.execute(get_notes)
+        get_all_notes = "SELECT  \"Student\".\"matNr\", \"Name\", \"birDate\" , c.\"Titel\",  a.\"Note\", c.\"Datum\", c.\"pNr\" FROM \"Student\" INNER JOIN (SELECT * FROM \"Notenliste\") a ON \"Student\".\"matNr\" = a.\"matNr\" INNER JOIN (SELECT * FROM \"Klausur\") c ON a.\"pNr\" = c.\"pNr\" WHERE \"Student\".\"matNr\" = {};".format(info)
 
-        noten = self.cursor.fetchall()
+        self.cursor.execute(get_all_notes)
 
-        noten = [note[0] for note in noten]
+        notenspiegel_inklv_stammdaten = self.cursor.fetchall()
 
-        print(noten)
+        if len(notenspiegel_inklv_stammdaten) == 0:
+            only_stammdaten_stat = "SELECT * FROM \"Student\" WHERE \"matNr\" = {}".format(info)
+            self.cursor.execute(only_stammdaten_stat)
 
-        return noten
+            only_stammdaten = self.cursor.fetchall()
+
+            only_stammdaten.insert(0, "Keine Note(n)")
+
+            print(only_stammdaten)
+
+            return only_stammdaten
+
+        else:
+
+            notenspiegel_inklv_stammdaten.insert(0, "Note(n) vorhanden")
+
+            print(notenspiegel_inklv_stammdaten)
+
+            return notenspiegel_inklv_stammdaten
 
 
 if __name__== '__main__':
     database_connection = DatabaseConnection()
+    #database_connection.get_all_noten_by_student(33)
     #database_connection.create_table()
     #database_connection.insert_new()
     #database_connection.create_student(info=gui.app.student_anlegen())

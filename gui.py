@@ -549,7 +549,6 @@ class App:
 
         def matrikel_auswahl():
             matrikel = mtr_auswahl.get()
-            print(matrikel)
 
             if str(matrikel) == "Bitte auswählen":
                 messagebox.showwarning("Fehler", "Bitte wählen Sie eine Matrikellnummer aus.")

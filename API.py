@@ -111,26 +111,49 @@ def generate_pdf(info):
     try:
 
         pdf = FPDF(orientation="P", unit="mm", format="A4")
+
         # Eine Seite hinzufügen:
         pdf.add_page()
+
         # Schriftart festlegen:
         pdf.set_font("Arial", size=18)
+
         #Logo
         pdf.image("Ressources/images-12.jpeg")
+
         # Überschrift
         pdf.cell(30, 10, 'Notenliste')
         pdf.ln(10)
+
         #Name
         pdf.set_font("Arial", size=12)
-        pdf.cell(30, 10, 'Name', 1, 0, 'C')
+
+        stammdaten = "Name: {}    Matrikelnummer: {}   Geburtsdatum: {}".format(noten[1][1], noten[1][0], str(noten[1][2]))
+
+        pdf.cell(180, 10, stammdaten , 1, 0, 'C')
         pdf.ln(15)
+
         #Noten
         pdf.cell(30, 10, 'Auflistung der Noten: ')
         pdf.ln(10)
 
-        for i in noten:
-            pdf.write(5, str(i))
-            pdf.ln(10)
+        if "Keine Note(n)" == str(noten[0]):
+            pdf.write(5, "Es sind keine Noten vorhanden.")
+
+        else:
+
+            noten.pop(0)
+
+            pdf.write(5, "Prüfungsnummer   Prüfungsname   Prüfungsdatum               Note")
+            pdf.write(5, "\n")
+            pdf.write(5, "\n")
+
+            for i in noten:
+                print(i)
+                x = str(i[6])+" "*30+str(i[3])+" "*25+str(i[5])+" "*25+str(i[4])
+                print(x)
+                pdf.write(5, x)
+                pdf.ln(10)
 
         pdf.output("Notenspiegel-{}.pdf".format(info))
 
