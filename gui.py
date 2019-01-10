@@ -43,13 +43,30 @@ class App:
 
 
 
-    def update_dropdowns(self):
+    def update_matrikel_dropdowns(self):
 
         conn = API.DatabaseConnection()
 
         matrikels = conn.get_matrikelnummer()
 
         return matrikels
+
+
+    def refresh_matrikel_dropdown(self, optionmenu, auswahl):
+
+        matrikellist = self.update_matrikel_dropdowns()
+
+        menu = optionmenu['menu']
+        menu.delete(0, "end")
+
+        for name in matrikellist:
+            menu.add_command(label=name, command=lambda name=name: self.selection(name, auswahl))
+
+
+    def selection(self, name, auswahl) :
+
+        auswahl.set(name)
+
 
     def student_anlegen(self, info):
 
@@ -69,21 +86,57 @@ class App:
         return info
 
 
+    def update_klausur_dropdowns(self):
+
+        conn = API.DatabaseConnection()
+
+        klausuren = conn.get_klausurnummer()
+
+        return klausuren
 
 
-    def refresh_dropdown(self, optionmenu, auswahl):
+    def refresh_klausur_dropdown(self, optionmenu, auswahl):
 
-        matrikellist = self.update_dropdowns()
+        klausurlist = self.update_klausur_dropdowns()
 
         menu = optionmenu['menu']
         menu.delete(0, "end")
 
-        for name in matrikellist:
-            menu.add_command(label=name, command=lambda name=name: self.selection(name, auswahl))
+        for name in klausurlist:
+            menu.add_command(label=name, command=lambda name=name: self.kl_selection(name, auswahl))
 
-    def selection(self, name, auswahl) :
+
+    def kl_selection(self, name, auswahl) :
 
         auswahl.set(name)
+
+
+    def klausur_anlegen(self, info):
+
+        conn = API.DatabaseConnection()
+
+        conn.create_klausur(info)
+
+        return info
+
+
+    def drop_klausur(self, info):
+
+        conn = API.DatabaseConnection()
+
+        conn.drop_klausur(info)
+
+        return info
+
+
+
+
+    def combine_update_and_write_commands(*funcs):
+        def combined_func(*args, **kwargs):
+            for f in funcs:
+                f(*args, **kwargs)
+
+        return combined_func
 
 
 
@@ -94,7 +147,6 @@ class App:
 
         newwin.grab_set()
         newwin.focus_set()
-
 
 
         def prufung_anlegen_callback():
@@ -150,8 +202,20 @@ class App:
 
             # Wenn alle Überprüfungen True sind, wird der Eintrag in der Datenbank eingeschrieben
             if (prufungsnummer_evaluierung == True) and (prufungstitel_evaluierung == True) and (prufungsdatum_evaluierung == True):
-                messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich angelegt.")
-                #hier Datenbankeintrag...
+
+                try:
+
+                    self.klausur_anlegen(prufung_anlegen)
+                    messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich angelegt.")
+
+
+                except Exception:
+
+                    messagebox.showinfo("Failed", "Failed create Klausur.")
+
+            else:
+                messagebox.showinfo("Failed", "Bitte überprüfen Sie die Angaben.")
+
 
 
         def prufung_loeschen_callback():
@@ -161,7 +225,17 @@ class App:
                 messagebox.showwarning("Fehler", "Bitte wählen Sie eine Prüfung aus.")
 
             else:
-                messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich gelöscht.")
+
+                try:
+
+                    self.drop_klausur(prufung_zu_loeschen)
+                    messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich gelöscht.")
+
+                    self.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen)
+
+                except Exception:
+
+                    messagebox.showinfo("Failed", "Failed drop Klausur.")
 
 
         '''Labels'''
@@ -188,12 +262,18 @@ class App:
 
 
         '''Buttons'''
-        Button(newwin, text="Prüfung anlegen", width=BUTTONWIDTH_TOPLEVELS, command=prufung_anlegen_callback).grid(row=4, column=1)
+        Button(newwin, text="Prüfung anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: self.combine_update_and_write_commands(prufung_anlegen_callback(), self.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen))).grid(row=4, column=1)
 
         Button(newwin, text="Prüfung löschen", width=BUTTONWIDTH_TOPLEVELS, command=prufung_loeschen_callback).grid(row=2, column=4)
 
-        prufung_auswaehlen = OptionMenu(newwin, prufung_zum_loeschen, 1, 2, 3, 4)
-        prufung_auswaehlen.grid(row=1, column=4)
+
+        '''Optionmenu'''
+        prufungOptionMenu = OptionMenu(newwin, prufung_zum_loeschen, ())
+        prufungOptionMenu.grid(row=1, column=4)
+
+        prufungOptionMenu.bind("<Button-1>", self.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen))
+
+
 
 
         '''Entries'''
@@ -335,7 +415,7 @@ class App:
                     self.drop_student(matrikelnummer_zu_loeschen)
                     messagebox.showinfo("Erfolgreich", "Studierender wurde erfolgreich gelöscht.")
 
-                    self.refresh_dropdown(option_matrikelnummer, matrikelnummer_auswahl)
+                    self.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl)
 
 
                 except Exception:
@@ -436,10 +516,10 @@ class App:
         option_matrikelnummer = OptionMenu(svf, matrikelnummer_auswahl, ())
         option_matrikelnummer.grid(row=1, column=4)
 
-        option_matrikelnummer.bind("<Button-1>", self.refresh_dropdown(option_matrikelnummer, matrikelnummer_auswahl))
+        option_matrikelnummer.bind("<Button-1>", self.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl))
 
         '''Buttons'''
-        Button(svf, text="Studierenden anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: combine_update_and_write_commands(studierenden_anlegen(), self.refresh_dropdown(option_matrikelnummer, matrikelnummer_auswahl))).grid(row=5, column=1)
+        Button(svf, text="Studierenden anlegen", width=BUTTONWIDTH_TOPLEVELS, command=lambda: self.combine_update_and_write_commands(studierenden_anlegen(), self.refresh_matrikel_dropdown(option_matrikelnummer, matrikelnummer_auswahl))).grid(row=5, column=1)
         Button(svf, text="Studierenden löschen", width=BUTTONWIDTH_TOPLEVELS, command=studierenden_loeschen).grid(row=2, column=4)
 
 
@@ -537,12 +617,9 @@ class App:
 
 
 
-def combine_update_and_write_commands(*funcs):
-    def combined_func(*args, **kwargs):
-        for f in funcs:
-            f(*args, **kwargs)
 
-    return combined_func
+
+
 
 
 if __name__ == '__main__':
