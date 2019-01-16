@@ -89,7 +89,7 @@ class DatabaseConnection:
         self.cursor.execute(drop_student_mat)
 
     def create_klausur(self, info):
-        create_klausur_mat = "INSERT INTO \"Klausur\"(\"Titel\", \"pNr\") VALUES ('{}', {});".format(info[1], info[0])
+        create_klausur_mat = "INSERT INTO \"Klausur\"(\"Titel\", \"pNr\", \"Datum\") VALUES ('{}', {}, to_timestamp('{}', 'dd-mm-yyyy'));".format(info[1], info[0], info[2])
         self.cursor.execute(create_klausur_mat)
 
     def drop_klausur(self, info):
@@ -121,8 +121,6 @@ class DatabaseConnection:
 
             only_stammdaten.insert(0, "Keine Note(n)")
 
-            print(only_stammdaten)
-
             return only_stammdaten
 
         else:
@@ -130,6 +128,7 @@ class DatabaseConnection:
             notenspiegel_inklv_stammdaten.insert(0, "Note(n) vorhanden")
 
             print(notenspiegel_inklv_stammdaten)
+
 
             return notenspiegel_inklv_stammdaten
 

@@ -60,6 +60,10 @@ class App:
             # Überprüfung der Prüfungsnummer
             try:
                 int(prufung_anlegen[0])
+
+                if len(prufung_anlegen[0]) > 13:
+                     messagebox.showwarning("Fehler", "Prüfungsnummer zu lang. Die Länge kann maximal 13 sein.")
+
                 prufungsnummer_evaluierung = True
 
             except (ValueError, TypeError):
@@ -67,7 +71,11 @@ class App:
 
             # Überprüfung Prüfungstitel
             if str(prufung_anlegen[1]).istitle():
-                prufungstitel_evaluierung = True
+                if len(str(prufung_anlegen[1])) > 20:
+                    messagebox.showwarning("Fehler", "Prüfungsname zu lang. Die Länge kann maximal 20 sein.")
+
+                else:
+                    prufungstitel_evaluierung = True
 
 
             # Überprüfung der Prüfungsdatum
@@ -114,7 +122,8 @@ class App:
                     messagebox.showinfo("Failed", "Failed create Klausur.")
 
             else:
-                messagebox.showinfo("Failed", "Bitte überprüfen Sie die Angaben.")
+                #messagebox.showinfo("Failed", "Bitte überprüfen Sie die Angaben.")
+                pass
 
 
 
@@ -494,7 +503,12 @@ class App:
             try:
                 zu_uberprufen = float(zu_uberprufen)
 
-                return zu_uberprufen
+                if zu_uberprufen < 1.0 or zu_uberprufen > 5.0:
+                    messagebox.showwarning("Fehler", "Bitte geben Sie eine Note zwischen 1.0 und 5.0 ein.")
+
+                else:
+
+                    return zu_uberprufen
 
             except ValueError:
 
@@ -566,8 +580,6 @@ class App:
 
                 except Exception:
                      messagebox.showwarning("Failed", "Failed to generate.")
-
-
 
 
         '''Labels'''

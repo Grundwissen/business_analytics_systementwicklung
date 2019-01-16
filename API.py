@@ -1,7 +1,10 @@
 import DB
-from fpdf import FPDF
+from fpdf import FPDF, HTMLMixin
 
 conn = DB.DatabaseConnection()
+
+class HTML2PDF(FPDF, HTMLMixin):
+    pass
 
 
 def update_matrikel_dropdowns():
@@ -110,7 +113,7 @@ def generate_pdf(info):
 
     try:
 
-        pdf = FPDF(orientation="P", unit="mm", format="A4")
+        pdf = HTML2PDF()
 
         # Eine Seite hinzufügen:
         pdf.add_page()
@@ -135,25 +138,45 @@ def generate_pdf(info):
 
         #Noten
         pdf.cell(30, 10, 'Auflistung der Noten: ')
-        pdf.ln(10)
+        pdf.ln(5)
 
         if "Keine Note(n)" == str(noten[0]):
             pdf.write(5, "Es sind keine Noten vorhanden.")
 
         else:
 
+
             noten.pop(0)
 
-            pdf.write(5, "Prüfungsnummer   Prüfungsname   Prüfungsdatum               Note")
-            pdf.write(5, "\n")
-            pdf.write(5, "\n")
+            row_list = ["<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>"]*len(noten)
 
-            for i in noten:
-                print(i)
-                x = str(i[6])+" "*30+str(i[3])+" "*25+str(i[5])+" "*25+str(i[4])
-                print(x)
-                pdf.write(5, x)
-                pdf.ln(10)
+            row_list_data = []
+
+            print(row_list)
+
+            for note, row in zip(noten, row_list):
+                row = row.format(str(note[6]), str(note[3]), str(note[5]), str(note[4]))
+                row_list_data.append(row)
+
+            table = """
+            <table border="0" align="center" width="100%">
+            <thead>
+            <tr>
+            <th width="25%" align="left" >Prüfungsnummer</th>
+            <th width="25%" align="left" >Prüfungsname</th>
+            <th width="25%" align="left" >Prüfungsdatum</th>
+            <th width="25%" align="left" >Prüfungsnote</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {}
+            </tbody>
+            </table>
+            """.format(row_list_data)
+
+            pdf.write_html(table)
+
 
         pdf.output("Notenspiegel-{}.pdf".format(info))
 
