@@ -1,26 +1,47 @@
-import datetime
 import API
+import datetime
 
 from tkinter import *
 from PIL import ImageTk, Image
 from tkinter import messagebox
 
 
+#Höhen- und Längen- Definitionen für die Buttons in der Applikation. Durch diese Konstanten wird eine einheitliche Darstellung gewährleistet
 BUTTON_WIDHT_HEIGHT_MAIN_FRAME = (25, 2)
 BUTTONWIDTH_TOPLEVELS = 18
 
 NoneType = type(None)
 
+"""Benutzeroberfläche der Applikation"""
+
 class App:
+    """Die Mainklasse der Applikation. Durch den Start der Applikation werden durch diese Klasse die Unterfenster der Applikationen erstellt.
+
+    Diese Klasse beinhaltet somit die Startseite der Applikation. Die Unterseiten werden durch die Aktionen der Buttons erstellt.
+
+    """
 
     def __init__(self, master):
+        """Die Methode __init__ ist der Construktor der Klasse App. Hier befinden sich die Buttons, womit man die Unterseiten der Applikation aufrufen kann.
+
+        Die Unterseiten der Applikationen werden durch die command Paramaterübergabe erstellt und angezeigt. Die Unterseiten sind somit Funktionen die aufgerufen werden, durch den
+        Aufruf werden TopLevel Objekte erstellt und es entstehen somit neue Unterseiten.
+
+
+        Die tkinter Elemente können auf zwei Arten in der Benutzeroberfläche platziert werden.
+        - self.pack() # Durch die .pack() Funktion können bestimmte Paramater wie side, padx (Padding x) und pady (Padding y) angegeben werden.
+        - self.element.grid() # Die Funktion .grid() hingegen platziert die Elemente wie in einem Grid und die Objekte können durch Spalten und Zeilen Nummern platziert werden.
+
+        In der __init__ Funktion wird einmalig die .pack() Funktion verwendet. An den restlichen Stellen der Applikation wird die Methode .grid() verwendet.
+        """
+
         frame = Frame(master)
         frame.pack()
 
         self.main_Label = Label(frame, text="Verwaltungssystem")
         self.main_Label.pack(side=TOP, padx=10, pady=10)
 
-        self.slogan = Button(frame, text="Prüfung anlegen", command=self.PrufungsverwaltungWindow, width=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[0], height=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[1])
+        self.slogan = Button(frame, text="Prüfung anlegen", command=self.prufungVerwaltungsWindow, width=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[0], height=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[1])
         self.slogan.pack(side=TOP,  padx=10, pady=10)
 
         self.slogan = Button(frame, text="Studierenden anlegen", command=self.StudierendenverwaltungFenster, width=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[0], height=BUTTON_WIDHT_HEIGHT_MAIN_FRAME[1])
@@ -39,47 +60,58 @@ class App:
         self.panel.pack(side = "bottom", fill = "both", expand = "yes")
 
 
+    def prufungVerwaltungsWindow(self):
 
-    def PrufungsverwaltungWindow(self):
-
+        """Durch diesen Funktionsaufruf wird eine Unterseite des root Objekts erstellt."""
 
         newwin = Toplevel(root)
+
+
+        """Durch die grab_set und focus_set Funktionen wird es verhindert, dass auf die Mainseite der Applikation geklickt werden kann, bevor die Unterseite geschlossen wird.
+        Dies verhindert bspw., dass mehrere Unterseiten erstellt werden kann"""
 
         newwin.grab_set()
         newwin.focus_set()
 
 
-        def prufung_anlegen_callback():
-            prufung_anlegen = (entry_prufungsnummer.get(), entry_prufungstitel.get(), entry_prufungsdatum.get())
+        """Diese Funktion legt die Prüfungen. Das Anlegung der Prüfung funktioniert so, in dem die Kontrollkonstanzen:
+        - prufungsnummer_evaluierung
+        - prufungstitel_evaluierung
+        - prufungsdatum_evaluierung
 
-            prufungsnummer_evaluierung = False
-            prufungstitel_evaluierung = False
-            prufungsdatum_evaluierung = False
+        von False auf True geändert werden. Dass die Konstanten von False auf True geändert werden können, müssen die Daten, die von den entry.get() Funktionen erhalten werden,
+        die Bedingungen für die Weiterleitung der Daten an die Datenbank erfüllt werden."""
+        def prufung_anlegen_callback():
+            PRUFUNG_ANLEGEN = (entry_prufungsnummer.get(), entry_prufungstitel.get(), entry_prufungsdatum.get())
+
+            PRUFUNGSNUMMER_EVALUIERUNG = False
+            PRUFUNGSNAME_EVALUIERUNG = False
+            PRUFUNGSDATUM_EVALUIERUNG = False
 
 
             # Überprüfung der Prüfungsnummer
             try:
-                int(prufung_anlegen[0])
+                int(PRUFUNG_ANLEGEN[0])
 
-                if len(prufung_anlegen[0]) > 13:
+                if len(PRUFUNG_ANLEGEN[0]) > 13:
                      messagebox.showwarning("Fehler", "Prüfungsnummer zu lang. Die Länge kann maximal 13 sein.")
 
-                prufungsnummer_evaluierung = True
+                PRUFUNGSNUMMER_EVALUIERUNG = True
 
             except (ValueError, TypeError):
                 pass
 
             # Überprüfung Prüfungstitel
-            if str(prufung_anlegen[1]).istitle():
-                if len(str(prufung_anlegen[1])) > 20:
+            if str(PRUFUNG_ANLEGEN[1]).istitle():
+                if len(str(PRUFUNG_ANLEGEN[1])) > 20:
                     messagebox.showwarning("Fehler", "Prüfungsname zu lang. Die Länge kann maximal 20 sein.")
 
                 else:
-                    prufungstitel_evaluierung = True
+                    PRUFUNGSNAME_EVALUIERUNG = True
 
 
             # Überprüfung der Prüfungsdatum
-            prufungsdatum = prufung_anlegen[2]
+            prufungsdatum = PRUFUNG_ANLEGEN[2]
 
             try:
 
@@ -94,26 +126,26 @@ class App:
                     pass
 
                 else:
-                    prufungsdatum_evaluierung = True
+                    PRUFUNGSDATUM_EVALUIERUNG = True
 
             except (ValueError, IndexError):
                 pass
 
-            if prufungsnummer_evaluierung == False:
+            if PRUFUNGSNUMMER_EVALUIERUNG == False:
                 messagebox.showwarning("Fehler", "Bitte geben Sie nur Zahlen ein.")
 
-            if prufungstitel_evaluierung == False:
+            if PRUFUNGSNAME_EVALUIERUNG == False:
                 messagebox.showwarning("Fehler", "Bitte achten Sie auf Groß- und Kleinschreibung.")
 
-            if prufungsdatum_evaluierung == False:
+            if PRUFUNGSDATUM_EVALUIERUNG == False:
                 messagebox.showwarning("Fehler", "Bitte geben Sie ein gültiges Datum ein. Achten Sie darauf, dass der Datum in der Zukunft liegt.")
 
             # Wenn alle Überprüfungen True sind, wird der Eintrag in der Datenbank eingeschrieben
-            if (prufungsnummer_evaluierung == True) and (prufungstitel_evaluierung == True) and (prufungsdatum_evaluierung == True):
+            if (PRUFUNGSNUMMER_EVALUIERUNG == True) and (PRUFUNGSNAME_EVALUIERUNG == True) and (PRUFUNGSDATUM_EVALUIERUNG == True):
 
                 try:
 
-                    API.klausur_anlegen(prufung_anlegen)
+                    API.klausur_anlegen(PRUFUNG_ANLEGEN)
                     messagebox.showinfo("Erfolgreich", "Die Prüfung wurde erfolgreich angelegt.")
 
 
@@ -127,6 +159,7 @@ class App:
 
 
 
+        """Die Funktion prufung_loeschen_callback bekommt die Variable von den StringVar Element, die in der OptionMenu ausgewählt wird."""
         def prufung_loeschen_callback():
             prufung_zu_loeschen = prufung_zum_loeschen.get()
 
@@ -147,6 +180,8 @@ class App:
                     messagebox.showinfo("Failed", "Failed drop Klausur.")
 
 
+
+        # Benutzeroberfläche Elemente
         '''Labels'''
         Label(newwin, text="Prüfungsverwaltung").grid(row=0, column=2)
 
@@ -183,8 +218,6 @@ class App:
         prufungOptionMenu.bind("<Button-1>", API.refresh_klausur_dropdown(prufungOptionMenu, prufung_zum_loeschen))
 
 
-
-
         '''Entries'''
         entry_prufungsnummer = Entry(newwin, textvariable=prefill_prufungsnummer)
         entry_prufungstitel = Entry(newwin, textvariable=prefill_prufungtitel)
@@ -200,7 +233,6 @@ class App:
 
 
         '''Clear Callbacks'''
-
 
         def delete_prufungsnummer_callback(event):
 
@@ -237,7 +269,12 @@ class App:
 
     def StudierendenverwaltungFenster(self):
 
+        """Durch diesen Funktionsaufruf wird eine Unterseite des root Objekts erstellt."""
+
         svf = Toplevel(root)
+
+        """Durch die grab_set und focus_set Funktionen wird es verhindert, dass auf die Mainseite der Applikation geklickt werden kann, bevor die Unterseite geschlossen wird.
+        Dies verhindert bspw., dass mehrere Unterseiten erstellt werden kann"""
 
         svf.grab_set()
         svf.focus_set()
@@ -248,10 +285,24 @@ class App:
 
             student_informationen = (entry_matrikelnummer.get(), entry_vorname.get(), entry_nachname.get(),  entry_geburtstag.get())
 
-            matrikelnummer_evaluierung = False
-            vorname_evaluierung = False
-            nachname_evaluierung = False
-            geburtstag_evaluierung = False
+            # Um die Eingaben zu überprüfen werden Überprüfungsparameter erstellt und auf False gesetzt. Nach positiver Überprüfung werden die Parameter auf True gesetzt.
+            # Wenn alle Überprüfungsparameter auf True gesetzt werden, wird der Eintrag an die DB weitergeleitet.
+
+
+            """Diese Funktion legt die Prüfungen. Das Anlegung der Prüfung funktioniert so, in dem die Kontrollkonstanzen:
+            - matrikelnummer_evaluierung
+            - vorname_evaluierung
+            - nachname_evaluierung
+            - geburtstag_evaluierung
+
+            von False auf True geändert werden. Dass die Konstanten von False auf True geändert werden können, müssen die Daten, die von den entry.get() Funktionen erhalten werden,
+            die Bedingungen für die Weiterleitung der Daten an die Datenbank erfüllt werden."""
+
+
+            MATRIKELNUMMER_EVALUIERUNG = False
+            VORNAME_EVALUIERUNG = False
+            NACHNAME_EVALUIERUNG = False
+            GEBURTSTAG_EVALUIERUNG = False
 
 
             matrikelnummer_int = 0
@@ -259,7 +310,7 @@ class App:
             #Überprüfung Matrikelnummer
             try:
                 matrikelnummer_int = int(student_informationen[0])
-                matrikelnummer_evaluierung = True
+                MATRIKELNUMMER_EVALUIERUNG = True
 
             except ValueError:
                 messagebox.showwarning("Fehler", "Bitte geben Sie nur ganze Zahlen ein.")
@@ -267,8 +318,8 @@ class App:
 
             #Überprüfung Vorname und Nachname
             if (str(student_informationen[1]).isalnum() == True) and (str(student_informationen[2]).isalnum() == True):
-                vorname_evaluierung = True
-                nachname_evaluierung = True
+                VORNAME_EVALUIERUNG = True
+                NACHNAME_EVALUIERUNG = True
 
             else:
                 messagebox.showwarning("Fehler", "Bitte geben richtige Vor- und Nachnamen ein.")
@@ -291,14 +342,14 @@ class App:
                     messagebox.showwarning("Fehler", "Geburtstag liegt in der Zukunft. Bitte geben Sie ein richtiges Datum ein.")
 
                 else:
-                    geburtstag_evaluierung = True
+                    GEBURTSTAG_EVALUIERUNG = True
 
             except (ValueError, IndexError):
                 pass
 
 
         # Wenn alle Überprüfungen True sind, wird der Eintrag in der Datenbank eingeschrieben
-            if (matrikelnummer_evaluierung == True) and (vorname_evaluierung == True) and (nachname_evaluierung == True) and (geburtstag_evaluierung == True):
+            if (MATRIKELNUMMER_EVALUIERUNG == True) and (VORNAME_EVALUIERUNG == True) and (NACHNAME_EVALUIERUNG == True) and (GEBURTSTAG_EVALUIERUNG == True):
 
                 try:
                     API.student_anlegen((matrikelnummer_int, student_informationen[1]+" "+student_informationen[2], date))
@@ -331,7 +382,7 @@ class App:
                     messagebox.showinfo("Failed", "Failed drop Student.")
 
 
-
+        # Benutzeroberfläche Elemente
         '''Labels'''
 
         Label(svf, text="Studierendenverwaltung").grid(row=0, column=2)
@@ -434,10 +485,16 @@ class App:
 
     def NotenVerwaltungsFenster(self):
 
+        """Durch diesen Funktionsaufruf wird eine Unterseite des root Objekts erstellt."""
 
         nvf = Toplevel(root)
+
+        """Durch die grab_set und focus_set Funktionen wird es verhindert, dass auf die Mainseite der Applikation geklickt werden kann, bevor die Unterseite geschlossen wird.
+        Dies verhindert bspw., dass mehrere Unterseiten erstellt werden kann"""
+
         nvf.grab_set()
         nvf.focus_set()
+
 
         def note_einspeichern():
             prufung = noten_auswahl.get()
@@ -515,6 +572,8 @@ class App:
                 return None
 
 
+        # Benutzeroberfläche Elemente
+
         '''Labels'''
 
         Label(nvf, text="Noteneingabe").grid(row=0, column=2)
@@ -553,10 +612,16 @@ class App:
 
     def NotenEinesStudentenAusgeben(self):
 
+        """Durch diesen Funktionsaufruf wird eine Unterseite des root Objekts erstellt."""
+
         NeSa = Toplevel(root)
 
         NeSa.geometry("213x140")
         NeSa.resizable(0,0)
+
+        """Durch die grab_set und focus_set Funktionen wird es verhindert, dass auf die Mainseite der Applikation geklickt werden kann, bevor die Unterseite geschlossen wird.
+        Dies verhindert bspw., dass mehrere Unterseiten erstellt werden kann"""
+
         NeSa.grab_set()
         NeSa.focus_set()
 
@@ -602,6 +667,8 @@ class App:
         Button(NeSa, text="PDF generieren", width=BUTTONWIDTH_TOPLEVELS, command=matrikel_auswahl).grid(row=4, column=0)
 
 
+
+'''Main function'''
 if __name__ == '__main__':
 
     root = Tk()

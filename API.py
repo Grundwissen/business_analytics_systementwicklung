@@ -1,12 +1,21 @@
 import DB
 from fpdf import FPDF, HTMLMixin
 
+
+"""Logik/Applikationsschicht der Applikation. Hier befinden sich die Funktionen die die Verbindung zwischen der
+Benutzeroberfläche und der Datenschicht (DB) aufbauen, und den Datenfluss regeln. """
+
+
+# DB Verbindung aufbauen
 conn = DB.DatabaseConnection()
 
+# Initalisierung der PDF mit HTML Features
 class HTML2PDF(FPDF, HTMLMixin):
     pass
 
 
+
+# Fetchen von aktuellen Matrikelnnummern aus der DB
 def update_matrikel_dropdowns():
 
     matrikels = conn.get_matrikelnummer()
@@ -14,6 +23,7 @@ def update_matrikel_dropdowns():
     return matrikels
 
 
+# Aktualisieren der Matrikeldropdowns
 def refresh_matrikel_dropdown(optionmenu, auswahl):
 
     matrikellist = update_matrikel_dropdowns()
@@ -25,11 +35,13 @@ def refresh_matrikel_dropdown(optionmenu, auswahl):
         menu.add_command(label=name, command=lambda name=name: selection(name, auswahl))
 
 
+# Selektierung der Auswahl
 def selection(name, auswahl) :
 
     auswahl.set(name)
 
 
+# Anlegen eines Studenten
 def student_anlegen(info):
 
     conn.create_student(info)
@@ -37,22 +49,22 @@ def student_anlegen(info):
     return info
 
 
+# Löschung eines Studenten
 def drop_student(info):
-
 
     conn.drop_student(info)
 
     return info
 
 
+# Fetchen von aktuellen Prüfungsnummern aus der DB
 def update_klausur_dropdowns():
-
 
     klausuren = conn.get_klausurnummer()
 
     return klausuren
 
-
+# Aktualisieren der Klausurdropdowns
 def refresh_klausur_dropdown(optionmenu, auswahl):
 
     klausurlist = update_klausur_dropdowns()
@@ -64,11 +76,13 @@ def refresh_klausur_dropdown(optionmenu, auswahl):
         menu.add_command(label=name, command=lambda name=name: kl_selection(name, auswahl))
 
 
+# Selektierung der Auswahl
 def kl_selection(name, auswahl) :
 
     auswahl.set(name)
 
 
+# Anlegen einer Prüfung
 def klausur_anlegen(info):
 
     conn.create_klausur(info)
@@ -76,6 +90,7 @@ def klausur_anlegen(info):
     return info
 
 
+# Löschung einer Prüfung
 def drop_klausur(info):
 
     conn.drop_klausur(info)
@@ -83,13 +98,14 @@ def drop_klausur(info):
     return info
 
 
+# Einfügen einer Note
 def insert_note(info):
 
     conn.insert_note(info)
 
     return info
 
-
+# Löschen einer Note
 def delete_note(info):
 
     cursor_status = conn.delete_note(info)
@@ -97,6 +113,7 @@ def delete_note(info):
     return cursor_status
 
 
+# Closure Function für die gleichzeitige Ausführen von zwei Funktionen
 def combine_update_and_write_commands(*funcs):
 
     def combined_func(*args, **kwargs):
@@ -107,6 +124,8 @@ def combine_update_and_write_commands(*funcs):
     return combined_func
 
 
+
+# Generierung des Notenspiegels als PDF eines Studierenden
 def generate_pdf(info):
 
     noten = conn.get_all_noten_by_student(info)
@@ -151,8 +170,6 @@ def generate_pdf(info):
             row_list = ["<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>"]*len(noten)
 
             row_list_data = []
-
-            print(row_list)
 
             for note, row in zip(noten, row_list):
                 row = row.format(str(note[6]), str(note[3]), str(note[5]), str(note[4]))
