@@ -1,0 +1,1351 @@
+2018-12-30 16:13:09.818 CET [20776] LOG:  listening on IPv6 address "::1", port 5432
+2018-12-30 16:13:09.818 CET [20776] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2018-12-30 16:13:09.819 CET [20776] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2018-12-30 16:13:09.837 CET [20778] LOG:  database system was shut down at 2018-12-30 16:13:09 CET
+2018-12-30 16:13:09.840 CET [20776] LOG:  database system is ready to accept connections
+2018-12-30 16:13:54.419 CET [20966] ERROR:  syntax error at or near ";" at character 7
+2018-12-30 16:13:54.419 CET [20966] STATEMENT:  CREATE;
+2018-12-30 16:14:02.611 CET [20966] ERROR:  syntax error at or near ";" at character 13
+2018-12-30 16:14:02.611 CET [20966] STATEMENT:  CREATE TABLE;
+2018-12-30 16:14:05.371 CET [20966] ERROR:  syntax error at or near ";" at character 15
+2018-12-30 16:14:05.371 CET [20966] STATEMENT:  CREATE TABLE X;
+2018-12-30 16:14:11.963 CET [20966] ERROR:  syntax error at or near ";" at character 16
+2018-12-30 16:14:11.963 CET [20966] STATEMENT:  CREATE TABLE X
+	;
+2018-12-30 16:14:18.179 CET [20966] ERROR:  syntax error at or near ";" at character 15
+2018-12-30 16:14:18.179 CET [20966] STATEMENT:  CREATE TABLE x;
+2018-12-30 16:27:13.613 CET [20776] LOG:  received fast shutdown request
+2018-12-30 16:27:13.614 CET [20776] LOG:  aborting any active transactions
+2018-12-30 16:27:13.614 CET [20966] FATAL:  terminating connection due to administrator command
+2018-12-30 16:27:13.615 CET [20776] LOG:  worker process: logical replication launcher (PID 20784) exited with exit code 1
+2018-12-30 16:27:13.615 CET [20779] LOG:  shutting down
+2018-12-30 16:27:13.620 CET [20776] LOG:  database system is shut down
+2019-01-09 09:53:42.639 CET [725] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-09 09:53:42.639 CET [725] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-09 09:53:42.640 CET [725] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-09 09:53:42.684 CET [726] LOG:  database system was shut down at 2018-12-30 16:27:13 CET
+2019-01-09 09:53:42.696 CET [725] LOG:  database system is ready to accept connections
+2019-01-09 09:54:00.160 CET [746] ERROR:  role "dharun" does not exist
+2019-01-09 09:54:00.160 CET [746] STATEMENT:  CREATE TABLE public."Klausur"
+	(
+	    "Titel" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	    "pNr" integer NOT NULL,
+	    CONSTRAINT exam_pkey PRIMARY KEY ("pNr")
+	)
+	WITH (
+	    OIDS = FALSE
+	)
+	TABLESPACE pg_default;
+	
+	ALTER TABLE public."Klausur"
+	    OWNER to DHarun;
+2019-01-09 09:55:19.098 CET [765] ERROR:  role "dharun" does not exist
+2019-01-09 09:55:19.098 CET [765] STATEMENT:  CREATE TABLE public."Klausur"
+	(
+	    "Titel" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	    "pNr" integer NOT NULL,
+	    CONSTRAINT exam_pkey PRIMARY KEY ("pNr")
+	)
+	WITH (
+	    OIDS = FALSE
+	)
+	TABLESPACE pg_default;
+	
+	ALTER TABLE public."Klausur"
+	    OWNER to DHarun;
+2019-01-09 09:55:26.185 CET [768] FATAL:  role "dharun" does not exist
+2019-01-09 09:55:41.688 CET [782] ERROR:  role "dharun" does not exist
+2019-01-09 09:55:41.688 CET [782] STATEMENT:  CREATE TABLE public."Klausur"
+	(
+	    "Titel" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	    "pNr" integer NOT NULL,
+	    CONSTRAINT exam_pkey PRIMARY KEY ("pNr")
+	)
+	WITH (
+	    OIDS = FALSE
+	)
+	TABLESPACE pg_default;
+	
+	ALTER TABLE public."Klausur"
+	    OWNER to DHarun;
+2019-01-09 09:56:00.459 CET [791] ERROR:  role "dharun" does not exist
+2019-01-09 09:56:00.459 CET [791] STATEMENT:  CREATE TABLE public."Klausur"
+	(
+	    "Titel" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	    "pNr" integer NOT NULL,
+	    CONSTRAINT exam_pkey PRIMARY KEY ("pNr")
+	)
+	WITH (
+	    OIDS = FALSE
+	)
+	TABLESPACE pg_default;
+	
+	ALTER TABLE public."Klausur"
+	    OWNER to DHarun;
+2019-01-09 10:02:02.878 CET [919] LOG:  invalid length of startup packet
+2019-01-09 10:02:02.882 CET [920] LOG:  invalid length of startup packet
+2019-01-09 10:02:02.884 CET [921] LOG:  invalid length of startup packet
+2019-01-09 10:02:30.611 CET [856] ERROR:  syntax error at or near "*" at character 15
+2019-01-09 10:02:30.611 CET [856] STATEMENT:  SELECT * FROM *;
+2019-01-09 10:02:35.040 CET [856] ERROR:  SELECT * with no tables specified is not valid at character 8
+2019-01-09 10:02:35.040 CET [856] STATEMENT:  SELECT *;
+2019-01-09 10:03:34.241 CET [856] ERROR:  syntax error at or near "/" at character 1
+2019-01-09 10:03:34.241 CET [856] STATEMENT:  /l
+	SELECT * FRM pg_catalog.pg_tables;
+2019-01-09 10:03:38.514 CET [856] ERROR:  syntax error at or near "/" at character 1
+2019-01-09 10:03:38.514 CET [856] STATEMENT:  /l
+	SELECT * FRM pg_catalog.pg_tables;
+2019-01-09 10:05:47.979 CET [856] ERROR:  relation "klausur" does not exist at character 15
+2019-01-09 10:05:47.979 CET [856] STATEMENT:  SELECT * FROM Klausur;
+2019-01-09 10:06:59.055 CET [856] ERROR:  relation "public.klausur" does not exist at character 15
+2019-01-09 10:06:59.055 CET [856] STATEMENT:  SELECT * FROM public.Klausur;
+2019-01-09 10:07:00.463 CET [856] ERROR:  relation "public.klausur" does not exist at character 15
+2019-01-09 10:07:00.463 CET [856] STATEMENT:  SELECT * FROM public.Klausur;
+2019-01-09 10:08:53.683 CET [856] ERROR:  syntax error at or near "TABLE" at character 15
+2019-01-09 10:08:53.683 CET [856] STATEMENT:  TABLE Klausur
+	TABLE Klausur;
+2019-01-09 10:09:02.527 CET [856] ERROR:  relation "klausur" does not exist at character 15
+2019-01-09 10:09:02.527 CET [856] STATEMENT:  SELECT * FROM Klausur;
+2019-01-09 10:12:18.714 CET [856] ERROR:  unrecognized configuration parameter "vendors"
+2019-01-09 10:12:18.714 CET [856] STATEMENT:  SHOW vendors;
+2019-01-09 10:20:20.428 CET [856] ERROR:  syntax error at or near "#" at character 1
+2019-01-09 10:20:20.428 CET [856] STATEMENT:  # Anlegen Noteliste
+	CREATE TABLE public."Notenliste"
+	(
+	    "Note" integer NOT NULL,
+	    "Datum" date NOT NULL,
+	    "pNr" integer NOT NULL,
+	    "matNr" integer NOT NULL,
+	    CONSTRAINT "Notenliste_pkey" PRIMARY KEY ("pNr", "matNr")
+	)
+	WITH (
+	    OIDS = FALSE
+	)
+	TABLESPACE pg_default;
+2019-01-09 10:20:20.430 CET [856] ERROR:  relation "public.Notenliste" does not exist
+2019-01-09 10:20:20.430 CET [856] STATEMENT:  ALTER TABLE public."Notenliste"
+	    OWNER to postgres;
+2019-01-09 10:20:20.433 CET [856] ERROR:  syntax error at or near "#" at character 1
+2019-01-09 10:20:20.433 CET [856] STATEMENT:  # Anlegen Student
+	CREATE TABLE public."Student"
+	(
+	    "matNr" integer NOT NULL,
+	    "Name" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	    "birDate" date,
+	    CONSTRAINT student_pkey PRIMARY KEY ("matNr")
+	)
+	WITH (
+	    OIDS = FALSE
+	)
+	TABLESPACE pg_default;
+2019-01-09 10:20:22.118 CET [856] ERROR:  relation "public.Student" does not exist
+2019-01-09 10:20:22.118 CET [856] STATEMENT:  ALTER TABLE public."Student"
+	    OWNER to postgres;
+2019-01-09 10:22:37.381 CET [1064] ERROR:  syntax error at or near "#" at character 669
+2019-01-09 10:22:37.381 CET [1064] STATEMENT:  CREATE TABLE public."Klausur"
+	                                (
+	                                    "Titel" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	                                    "pNr" integer NOT NULL,
+	                                    CONSTRAINT exam_pkey PRIMARY KEY ("pNr")
+	                                )
+	                                WITH (
+	                                    OIDS = FALSE
+	                                )
+	                                TABLESPACE pg_default;
+	
+	                                ALTER TABLE public."Klausur"
+	                                    OWNER to postgres;
+	
+	
+	                                # Anlegen Noteliste
+	
+	                                CREATE TABLE public."Notenliste"
+	                                (
+	                                    "Note" integer NOT NULL,
+	                                    "Datum" date NOT NULL,
+	                                    "pNr" integer NOT NULL,
+	                                    "matNr" integer NOT NULL,
+	                                    CONSTRAINT "Notenliste_pkey" PRIMARY KEY ("pNr", "matNr")
+	                                )
+	                                WITH (
+	                                    OIDS = FALSE
+	                                )
+	                                TABLESPACE pg_default;
+	
+	                                ALTER TABLE public."Notenliste"
+	                                    OWNER to postgres;
+	
+	
+	                                # Anlegen Student
+	
+	
+	                                CREATE TABLE public."Student"
+	                                (
+	                                    "matNr" integer NOT NULL,
+	                                    "Name" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	                                    "birDate" date,
+	                                    CONSTRAINT student_pkey PRIMARY KEY ("matNr")
+	                                )
+	                                WITH (
+	                                    OIDS = FALSE
+	                                )
+	                                TABLESPACE pg_default;
+	
+	                                ALTER TABLE public."Student"
+	                                    OWNER to postgres;	
+2019-01-09 10:23:19.216 CET [1072] ERROR:  relation "Klausur" already exists
+2019-01-09 10:23:19.216 CET [1072] STATEMENT:  CREATE TABLE public."Klausur"
+	                                (
+	                                    "Titel" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	                                    "pNr" integer NOT NULL,
+	                                    CONSTRAINT exam_pkey PRIMARY KEY ("pNr")
+	                                )
+	                                WITH (
+	                                    OIDS = FALSE
+	                                )
+	                                TABLESPACE pg_default;
+	
+	                                ALTER TABLE public."Klausur"
+	                                    OWNER to postgres;
+	
+	
+	
+	                                CREATE TABLE public."Notenliste"
+	                                (
+	                                    "Note" integer NOT NULL,
+	                                    "Datum" date NOT NULL,
+	                                    "pNr" integer NOT NULL,
+	                                    "matNr" integer NOT NULL,
+	                                    CONSTRAINT "Notenliste_pkey" PRIMARY KEY ("pNr", "matNr")
+	                                )
+	                                WITH (
+	                                    OIDS = FALSE
+	                                )
+	                                TABLESPACE pg_default;
+	
+	                                ALTER TABLE public."Notenliste"
+	                                    OWNER to postgres;
+	
+	
+	
+	                                CREATE TABLE public."Student"
+	                                (
+	                                    "matNr" integer NOT NULL,
+	                                    "Name" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	                                    "birDate" date,
+	                                    CONSTRAINT student_pkey PRIMARY KEY ("matNr")
+	                                )
+	                                WITH (
+	                                    OIDS = FALSE
+	                                )
+	                                TABLESPACE pg_default;
+	
+	                                ALTER TABLE public."Student"
+	                                    OWNER to postgres;	
+2019-01-09 10:24:30.522 CET [856] ERROR:  relation "klausur" does not exist at character 15
+2019-01-09 10:24:30.522 CET [856] STATEMENT:  SELECT * FROM Klausur;
+2019-01-09 10:24:42.986 CET [856] ERROR:  relation "klausur" does not exist at character 15
+2019-01-09 10:24:42.986 CET [856] STATEMENT:  SELECT * FROM klausur;
+2019-01-09 10:24:51.890 CET [856] ERROR:  relation "public.klausur" does not exist at character 15
+2019-01-09 10:24:51.890 CET [856] STATEMENT:  SELECT * FROM public.Klausur;
+2019-01-09 10:24:56.059 CET [856] ERROR:  relation "klausur" does not exist at character 15
+2019-01-09 10:24:56.059 CET [856] STATEMENT:  SELECT * FROM Klausur;
+2019-01-09 10:25:24.923 CET [856] ERROR:  relation "klausur" does not exist at character 7
+2019-01-09 10:25:24.923 CET [856] STATEMENT:  TABLE Klausur;
+2019-01-09 10:26:44.062 CET [856] ERROR:  syntax error at or near "SELECT" at character 23
+2019-01-09 10:26:44.062 CET [856] STATEMENT:  SELECT * FROM Student
+	SELECT * FROM Student;
+2019-01-09 10:28:02.767 CET [856] ERROR:  syntax error at or near "*" at character 15
+2019-01-09 10:28:02.767 CET [856] STATEMENT:  SELECT * FROM *;
+2019-01-09 10:28:13.152 CET [856] ERROR:  relation "student" does not exist at character 7
+2019-01-09 10:28:13.152 CET [856] STATEMENT:  TABLE Student;
+2019-01-09 10:28:32.595 CET [856] ERROR:  syntax error at or near "TABLE" at character 15
+2019-01-09 10:28:32.595 CET [856] STATEMENT:  TABLE Klausur
+	TABLE Klausur;
+2019-01-09 10:30:32.041 CET [1130] ERROR:  relation "Klausur" already exists
+2019-01-09 10:30:32.041 CET [1130] STATEMENT:  CREATE TABLE public."Klausur"
+	                                (
+	                                    "Titel" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	                                    "pNr" integer NOT NULL,
+	                                    CONSTRAINT exam_pkey PRIMARY KEY ("pNr")
+	                                )
+	                                WITH (
+	                                    OIDS = FALSE
+	                                )
+	                                TABLESPACE pg_default;
+	
+	                                ALTER TABLE public."Klausur"
+	                                    OWNER to postgres;
+	
+	
+	
+	                                CREATE TABLE public."Notenliste"
+	                                (
+	                                    "Note" integer NOT NULL,
+	                                    "Datum" date NOT NULL,
+	                                    "pNr" integer NOT NULL,
+	                                    "matNr" integer NOT NULL,
+	                                    CONSTRAINT "Notenliste_pkey" PRIMARY KEY ("pNr", "matNr")
+	                                )
+	                                WITH (
+	                                    OIDS = FALSE
+	                                )
+	                                TABLESPACE pg_default;
+	
+	                                ALTER TABLE public."Notenliste"
+	                                    OWNER to postgres;
+	
+	
+	
+	                                CREATE TABLE public."Student"
+	                                (
+	                                    "matNr" integer NOT NULL,
+	                                    "Name" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+	                                    "birDate" date,
+	                                    CONSTRAINT student_pkey PRIMARY KEY ("matNr")
+	                                )
+	                                WITH (
+	                                    OIDS = FALSE
+	                                )
+	                                TABLESPACE pg_default;
+	
+	                                ALTER TABLE public."Student"
+	                                    OWNER to postgres;	
+2019-01-09 10:31:25.494 CET [1135] ERROR:  relation "notenliste" does not exist at character 13
+2019-01-09 10:31:25.494 CET [1135] STATEMENT:  INSERT INTO notenliste(num, data) VALUES('22', 'hansmittermeier'); 
+2019-01-09 10:31:33.596 CET [1138] ERROR:  relation "klausur" does not exist at character 13
+2019-01-09 10:31:33.596 CET [1138] STATEMENT:  INSERT INTO Klausur(num, data) VALUES('22', 'hansmittermeier'); 
+2019-01-09 10:32:01.012 CET [1142] ERROR:  relation "notenliste" does not exist at character 13
+2019-01-09 10:32:01.012 CET [1142] STATEMENT:  INSERT INTO Notenliste(num, data) VALUES('22', 'hansmittermeier'); 
+2019-01-09 10:35:24.065 CET [1162] ERROR:  relation "notenliste" does not exist at character 13
+2019-01-09 10:35:24.065 CET [1162] STATEMENT:  INSERT INTO Notenliste(Note, Datum, pNr, matNr) VALUES('22', '2018-01-01', '1', '1'); 
+2019-01-09 10:35:39.882 CET [1166] ERROR:  column "note" of relation "Notenliste" does not exist at character 26
+2019-01-09 10:35:39.882 CET [1166] STATEMENT:  INSERT INTO "Notenliste"(Note, Datum, pNr, matNr) VALUES('22', '2018-01-01', '1', '1'); 
+2019-01-09 10:38:30.341 CET [1179] ERROR:  syntax error at or near "'Note'" at character 24
+2019-01-09 10:38:30.341 CET [1179] STATEMENT:  INSERT INTO Notenliste('Note', 'Datum', 'pNr', 'matNr') VALUES('22', '2018-01-01', '1', '1'); 
+2019-01-09 10:38:43.133 CET [1183] ERROR:  syntax error at or near "'Notenliste'" at character 13
+2019-01-09 10:38:43.133 CET [1183] STATEMENT:  INSERT INTO 'Notenliste'('Note', 'Datum', 'pNr', 'matNr') VALUES('22', '2018-01-01', '1', '1'); 
+2019-01-09 10:40:04.134 CET [1204] ERROR:  column "22" does not exist at character 66
+2019-01-09 10:40:04.134 CET [1204] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES("22", "2018-01-01", "1", "1"); 
+2019-01-09 10:41:47.295 CET [1214] ERROR:  column "2018-01-01" does not exist at character 71
+2019-01-09 10:41:47.295 CET [1214] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, "2018-01-01", 1, 1); 
+2019-01-09 10:41:54.875 CET [1218] ERROR:  column "Datum" is of type date but expression is of type integer at character 71
+2019-01-09 10:41:54.875 CET [1218] HINT:  You will need to rewrite or cast the expression.
+2019-01-09 10:41:54.875 CET [1218] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, 2018-01-01, 1, 1); 
+2019-01-09 10:43:08.715 CET [1226] ERROR:  syntax error at or near "::" at character 72
+2019-01-09 10:43:08.715 CET [1226] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, ?::2018-01-01, 1, 1); 
+2019-01-09 10:44:14.951 CET [1237] ERROR:  function to_date(integer) does not exist at character 71
+2019-01-09 10:44:14.951 CET [1237] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2019-01-09 10:44:14.951 CET [1237] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, to_date(2018-01-01), 1, 1); 
+2019-01-09 10:45:09.566 CET [1248] ERROR:  column "20180101" does not exist at character 79
+2019-01-09 10:45:09.566 CET [1248] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, to_date("20180101", "YYYYDDMM"), 1, 1); 
+2019-01-09 10:45:40.185 CET [1252] ERROR:  column "20180101" does not exist at character 79
+2019-01-09 10:45:40.185 CET [1252] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, to_date("20180101", "YYYYMMDD"), 1, 1); 
+2019-01-09 10:47:09.202 CET [1262] ERROR:  column "YYYYMMDD" does not exist at character 89
+2019-01-09 10:47:09.202 CET [1262] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, to_date(20180101, "YYYYMMDD"), 1, 1); 
+2019-01-09 10:47:17.932 CET [1267] ERROR:  column "yyyymmdd" does not exist at character 89
+2019-01-09 10:47:17.932 CET [1267] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, to_date(20180101, YYYYMMDD), 1, 1); 
+2019-01-09 10:48:06.657 CET [1281] ERROR:  syntax error at or near ";" at character 139
+2019-01-09 10:48:06.657 CET [1281] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, (to_timestamp('16-05-2011 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 1, 1); 
+2019-01-09 10:48:25.149 CET [1285] ERROR:  syntax error at or near ";" at character 139
+2019-01-09 10:48:25.149 CET [1285] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, (to_timestamp('16-05-2011 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 1, 1);
+2019-01-09 10:48:57.462 CET [1289] ERROR:  INSERT has more target columns than expressions at character 43
+2019-01-09 10:48:57.462 CET [1289] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, (to_timestamp('16-05-2011 15:36:38', 'dd-mm-yyyy hh24:mi:ss'), 1, 1));
+2019-01-09 10:49:44.409 CET [1299] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-09 10:49:44.409 CET [1299] DETAIL:  Key ("pNr", "matNr")=(1, 1) already exists.
+2019-01-09 10:49:44.409 CET [1299] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, to_timestamp('16-05-2011', 'dd-mm-yyyy'), 1, 1);
+2019-01-09 10:49:55.217 CET [1302] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-09 10:49:55.217 CET [1302] DETAIL:  Key ("pNr", "matNr")=(1, 1) already exists.
+2019-01-09 10:49:55.217 CET [1302] STATEMENT:  INSERT INTO "Notenliste"("Note", "Datum", "pNr", "matNr") VALUES (22, to_timestamp('16-05-2021', 'dd-mm-yyyy'), 1, 1);
+2019-01-09 10:57:37.191 CET [1360] ERROR:  syntax error at end of input at character 111
+2019-01-09 10:57:37.191 CET [1360] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (1, "Harun", to_timestamp('16-05-2021', 'dd-mm-yyyy')
+2019-01-09 10:57:45.054 CET [1364] ERROR:  syntax error at or near ";" at character 111
+2019-01-09 10:57:45.054 CET [1364] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (1, "Harun", to_timestamp('16-05-2021', 'dd-mm-yyyy');
+2019-01-09 10:57:52.456 CET [1367] ERROR:  column "Harun" does not exist at character 62
+2019-01-09 10:57:52.456 CET [1367] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (1, "Harun", to_timestamp('16-05-2021', 'dd-mm-yyyy'));
+2019-01-09 10:58:00.553 CET [1371] ERROR:  column "harun" does not exist at character 62
+2019-01-09 10:58:00.553 CET [1371] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (1, Harun, to_timestamp('16-05-2021', 'dd-mm-yyyy'));
+2019-01-09 10:59:32.657 CET [1385] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2019-01-09 10:59:32.657 CET [1385] DETAIL:  Key ("matNr")=(1) already exists.
+2019-01-09 10:59:32.657 CET [1385] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (1, 'Harun', to_timestamp('16-05-2021', 'dd-mm-yyyy'));
+2019-01-09 11:01:18.711 CET [1410] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2019-01-09 11:01:18.711 CET [1410] DETAIL:  Key ("matNr")=(5) already exists.
+2019-01-09 11:01:18.711 CET [1410] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (5, 'Harun', to_timestamp('16-05-2021', 'dd-mm-yyyy'));
+2019-01-09 11:10:59.603 CET [1483] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2019-01-09 11:10:59.603 CET [1483] DETAIL:  Key ("matNr")=(8) already exists.
+2019-01-09 11:10:59.603 CET [1483] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (8, 'Harun', to_timestamp('16-05-2021', 'dd-mm-yyyy'));
+2019-01-09 11:37:08.368 CET [1606] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2019-01-09 11:37:08.368 CET [1606] DETAIL:  Key ("matNr")=(45) already exists.
+2019-01-09 11:37:08.368 CET [1606] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (45, 'Harun', to_timestamp('16-05-2021', 'dd-mm-yyyy'));
+2019-01-09 12:30:39.801 CET [1990] ERROR:  date/time field value out of range: "2000-11-11 00:00:00"
+2019-01-09 12:30:39.801 CET [1990] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (80000, 'Phil Fox', to_timestamp('2000-11-11 00:00:00', 'dd-mm-yyyy'));
+2019-01-09 12:33:57.653 CET [2028] ERROR:  date/time field value out of range: "1995-10-10"
+2019-01-09 12:33:57.653 CET [2028] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (23124, 'Paul Groov', to_timestamp('1995-10-10', 'dd-mm-yyyy'));
+2019-01-09 12:40:32.877 CET [2098] ERROR:  integer out of range
+2019-01-09 12:40:32.877 CET [2098] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (3204902390, 'Last Try', to_timestamp('01-01-2000', 'dd-mm-yyyy'));
+2019-01-09 12:47:17.541 CET [2157] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2019-01-09 12:47:17.541 CET [2157] DETAIL:  Key ("matNr")=(332532532) already exists.
+2019-01-09 12:47:17.541 CET [2157] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (332532532, 'DSFssFdsaf SDFSDFSDf', to_timestamp('30-11-2011', 'dd-mm-yyyy'));
+2019-01-09 12:47:22.125 CET [2159] ERROR:  integer out of range
+2019-01-09 12:47:22.125 CET [2159] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (3325325320, 'DSFssFdsaf SDFSDFSDf', to_timestamp('30-11-2011', 'dd-mm-yyyy'));
+2019-01-09 12:47:34.256 CET [2163] ERROR:  integer out of range
+2019-01-09 12:47:34.256 CET [2163] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (3325325320, 'DSFssFdsafk SDFSDFSDfk', to_timestamp('30-11-2011', 'dd-mm-yyyy'));
+2019-01-09 15:19:13.700 CET [2638] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2019-01-09 15:19:13.700 CET [2638] DETAIL:  Key ("matNr")=(2) already exists.
+2019-01-09 15:19:13.700 CET [2638] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (2, 'Sfrm Sdfdsf', to_timestamp('22-02-2000', 'dd-mm-yyyy'));
+2019-01-09 15:19:21.915 CET [2642] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2019-01-09 15:19:21.915 CET [2642] DETAIL:  Key ("matNr")=(2) already exists.
+2019-01-09 15:19:21.915 CET [2642] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (2, 'Sfrm Sdfdsf', to_timestamp('22-02-2000', 'dd-mm-yyyy'));
+2019-01-09 17:23:46.570 CET [725] LOG:  received fast shutdown request
+2019-01-09 17:23:46.571 CET [725] LOG:  aborting any active transactions
+2019-01-09 17:23:46.573 CET [856] FATAL:  terminating connection due to administrator command
+2019-01-09 17:23:46.576 CET [725] LOG:  worker process: logical replication launcher (PID 732) exited with exit code 1
+2019-01-09 17:23:46.577 CET [744] FATAL:  terminating connection due to administrator command
+2019-01-09 17:23:46.577 CET [778] FATAL:  terminating connection due to administrator command
+2019-01-09 17:23:46.581 CET [727] LOG:  shutting down
+2019-01-09 17:23:46.593 CET [725] LOG:  database system is shut down
+2019-01-09 22:52:15.107 CET [3603] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-09 22:52:15.108 CET [3603] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-09 22:52:15.108 CET [3603] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-09 22:52:15.139 CET [3604] LOG:  database system was shut down at 2019-01-09 17:23:46 CET
+2019-01-09 22:52:15.148 CET [3603] LOG:  database system is ready to accept connections
+2019-01-09 22:52:29.077 CET [3630] ERROR:  relation "Studenten" does not exist at character 15
+2019-01-09 22:52:29.077 CET [3630] STATEMENT:  SELECT * FROM "Studenten";
+2019-01-09 23:03:51.650 CET [3746] ERROR:  integer out of range
+2019-01-09 23:03:51.650 CET [3746] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (110000000000, 'ALLOO ASDAS', to_timestamp('11-11-2011', 'dd-mm-yyyy'));
+2019-01-09 23:04:18.097 CET [3748] ERROR:  integer out of range
+2019-01-09 23:04:18.097 CET [3748] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (110000000000, 'ALLOO ASDAS', to_timestamp('11-11-2011', 'dd-mm-yyyy'));
+2019-01-10 00:01:29.512 CET [3630] ERROR:  syntax error at or near "[" at character 39
+2019-01-10 00:01:29.512 CET [3630] STATEMENT:  delete from "Student" where "matNr" = [];
+2019-01-10 00:01:30.636 CET [3630] ERROR:  syntax error at or near "[" at character 39
+2019-01-10 00:01:30.636 CET [3630] STATEMENT:  delete from "Student" where "matNr" = [];
+2019-01-10 00:01:31.356 CET [3630] ERROR:  syntax error at or near "[" at character 39
+2019-01-10 00:01:31.356 CET [3630] STATEMENT:  delete from "Student" where "matNr" = [];
+2019-01-10 00:01:39.079 CET [3630] ERROR:  syntax error at or near "]" at character 39
+2019-01-10 00:01:39.079 CET [3630] STATEMENT:  delete from "Student" where "matNr" =2];
+2019-01-10 00:03:09.038 CET [4100] ERROR:  syntax error at or near "FRON" at character 8
+2019-01-10 00:03:09.038 CET [4100] STATEMENT:  DELETE FRON "Student" WHERE "matNr" = 1;
+2019-01-10 00:42:26.081 CET [4498] ERROR:  column "a" does not exist at character 52
+2019-01-10 00:42:26.081 CET [4498] STATEMENT:  INSERT INTO "Klausur"("Titel", "pNr") VALUES ('1', A);
+2019-01-10 00:42:40.604 CET [4499] ERROR:  column "asfdsf" does not exist at character 52
+2019-01-10 00:42:40.604 CET [4499] STATEMENT:  INSERT INTO "Klausur"("Titel", "pNr") VALUES ('1', Asfdsf);
+2019-01-10 00:42:44.363 CET [4500] ERROR:  column "asfdsf" does not exist at character 55
+2019-01-10 00:42:44.363 CET [4500] STATEMENT:  INSERT INTO "Klausur"("Titel", "pNr") VALUES ('1213', Asfdsf);
+2019-01-10 01:18:48.016 CET [3603] LOG:  received fast shutdown request
+2019-01-10 01:18:48.017 CET [3603] LOG:  aborting any active transactions
+2019-01-10 01:18:48.020 CET [3603] LOG:  worker process: logical replication launcher (PID 3610) exited with exit code 1
+2019-01-10 01:18:48.020 CET [3605] LOG:  shutting down
+2019-01-10 01:18:48.029 CET [3603] LOG:  database system is shut down
+2019-01-10 10:09:12.710 CET [978] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-10 10:09:12.710 CET [978] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-10 10:09:12.711 CET [978] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-10 10:09:12.753 CET [979] LOG:  database system was shut down at 2019-01-10 01:18:48 CET
+2019-01-10 10:09:12.765 CET [978] LOG:  database system is ready to accept connections
+2019-01-10 13:22:24.431 CET [1729] ERROR:  duplicate key value violates unique constraint "student_pkey"
+2019-01-10 13:22:24.431 CET [1729] DETAIL:  Key ("matNr")=(324) already exists.
+2019-01-10 13:22:24.431 CET [1729] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (324, 'Sd SDdf', to_timestamp('10-10-1000', 'dd-mm-yyyy'));
+2019-01-10 13:23:22.772 CET [1003] ERROR:  relation "Noten" does not exist at character 15
+2019-01-10 13:23:22.772 CET [1003] STATEMENT:  SELECT * FROM "Noten";
+2019-01-10 13:33:31.834 CET [1876] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-10 13:33:31.834 CET [1876] DETAIL:  Key ("pNr", "matNr")=(13, 45) already exists.
+2019-01-10 13:33:31.834 CET [1876] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2, 13, 45);
+2019-01-10 13:35:19.222 CET [1003] ERROR:  syntax error at or near "TABLE" at character 31
+2019-01-10 13:35:19.222 CET [1003] STATEMENT:  ALTER TABLE "Notenliste"
+	DROP TABLE "Notenliste";
+2019-01-10 13:35:30.085 CET [1003] ERROR:  relation "Notenliste" does not exist at character 15
+2019-01-10 13:35:30.085 CET [1003] STATEMENT:  SELECT * FROM "Notenliste";
+2019-01-10 13:35:53.985 CET [1897] ERROR:  relation "Notenliste" already exists
+2019-01-10 13:35:53.985 CET [1897] STATEMENT:  
+	
+	
+	
+	                                CREATE TABLE public."Notenliste"
+	                                (
+	                                    "Note" float NOT NULL,
+	                                    "pNr" integer NOT NULL,
+	                                    "matNr" integer NOT NULL,
+	                                    CONSTRAINT "Notenliste_pkey" PRIMARY KEY ("pNr", "matNr")
+	                                )
+	                                WITH (
+	                                    OIDS = FALSE
+	                                )
+	                                TABLESPACE pg_default;
+	
+	                                ALTER TABLE public."Notenliste"
+	                                    OWNER to postgres;
+	
+	
+	
+	                                
+2019-01-10 14:59:20.608 CET [2171] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-10 14:59:20.608 CET [2171] DETAIL:  Key ("pNr", "matNr")=(12, 99999) already exists.
+2019-01-10 14:59:20.608 CET [2171] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 12, 99999);
+2019-01-10 16:28:12.310 CET [1003] ERROR:  relation "Studenten" does not exist at character 15
+2019-01-10 16:28:12.310 CET [1003] STATEMENT:  SELECT * FROM "Studenten";
+2019-01-10 17:28:48.828 CET [978] LOG:  received fast shutdown request
+2019-01-10 17:28:48.828 CET [978] LOG:  aborting any active transactions
+2019-01-10 17:28:48.831 CET [978] LOG:  worker process: logical replication launcher (PID 985) exited with exit code 1
+2019-01-10 17:28:48.831 CET [980] LOG:  shutting down
+2019-01-10 17:28:48.839 CET [978] LOG:  database system is shut down
+2019-01-10 22:33:13.086 CET [805] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-10 22:33:13.087 CET [805] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-10 22:33:13.088 CET [805] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-10 22:33:13.122 CET [806] LOG:  database system was shut down at 2019-01-10 17:28:48 CET
+2019-01-10 22:33:13.132 CET [805] LOG:  database system is ready to accept connections
+2019-01-10 22:33:34.466 CET [836] ERROR:  column a.Datum does not exist at character 70
+2019-01-10 22:33:34.466 CET [836] STATEMENT:  SELECT "Name" , "Student"."matNr", "birDate" , c."Titel",  a."Note", a."Datum" FROM "Student" INNER JOIN (SELECT * FROM "Notenliste") a on "Student"."matNr" = a."matNr" INNER JOIN (SELECT * FROM "Klausur") c ON a."pNr" = c."pNr" WHERE "Student"."matNr" = 45;
+2019-01-10 22:34:13.758 CET [844] ERROR:  column a.Datum does not exist at character 70
+2019-01-10 22:34:13.758 CET [844] STATEMENT:  SELECT "Name" , "Student"."matNr", "birDate" , c."Titel",  a."Note", a."Datum" FROM "Student" INNER JOIN (SELECT * FROM "Notenliste") a on "Student"."matNr" = a."matNr" INNER JOIN (SELECT * FROM "Klausur") c ON a."pNr" = c."pNr" WHERE "Student"."matNr" = 45;
+2019-01-10 22:37:40.130 CET [869] ERROR:  column a.Datum does not exist at character 70
+2019-01-10 22:37:40.130 CET [869] STATEMENT:  SELECT "Name" , "Student"."matNr", "birDate" , c."Titel",  a."Note", a."Datum" FROM "Student" INNER JOIN (SELECT * FROM "Notenliste") a ON "Student"."matNr" = a."matNr" INNER JOIN (SELECT * FROM "Klausur") c ON a."pNr" = c."pNr" WHERE "Student"."matNr" = 45;
+2019-01-10 22:38:28.882 CET [885] ERROR:  missing FROM-clause entry for table "Notenliste" at character 60
+2019-01-10 22:38:28.882 CET [885] STATEMENT:  SELECT "Name" , "Student"."matNr", "birDate" , c."Titel",  "Notenliste"."Note", a."Datum" FROM "Student" INNER JOIN (SELECT * FROM "Notenliste") a ON "Student"."matNr" = a."matNr" INNER JOIN (SELECT * FROM "Klausur") c ON a."pNr" = c."pNr" WHERE "Student"."matNr" = 45;
+2019-01-10 22:40:56.440 CET [895] ERROR:  column a.Datum does not exist at character 72
+2019-01-10 22:40:56.440 CET [895] STATEMENT:  SELECT "Name" , "Student"."matNr", "birDate" , c."Titel",  "a"."Note", a."Datum" FROM "Student" INNER JOIN (SELECT * FROM "Notenliste") a ON "Student"."matNr" = a."matNr" INNER JOIN (SELECT * FROM "Klausur") c ON a."pNr" = c."pNr" WHERE "Student"."matNr" = 45;
+2019-01-10 22:41:26.321 CET [902] ERROR:  column a.Datum does not exist at character 74
+2019-01-10 22:41:26.321 CET [902] STATEMENT:  SELECT "Name" , "Student"."matNr", "birDate" , "c"."Titel",  "a"."Note", "a"."Datum" FROM "Student" INNER JOIN (SELECT * FROM "Notenliste") a ON "Student"."matNr" = a."matNr" INNER JOIN (SELECT * FROM "Klausur") c ON a."pNr" = c."pNr" WHERE "Student"."matNr" = 45;
+2019-01-10 22:42:15.777 CET [908] ERROR:  column a.Datum does not exist at character 74
+2019-01-10 22:42:15.777 CET [908] STATEMENT:  SELECT "Name" , "Student"."matNr", "birDate" , "c"."Titel",  "a"."Note", "a"."Datum" FROM "Student" INNER JOIN (SELECT * FROM "Notenliste") AS a ON "Student"."matNr" = a."matNr" INNER JOIN (SELECT * FROM "Klausur") c ON a."pNr" = c."pNr" WHERE "Student"."matNr" = 45;
+2019-01-10 22:42:50.102 CET [830] ERROR:  relation "Klausuren" does not exist at character 15
+2019-01-10 22:42:50.102 CET [830] STATEMENT:  SELECT * FROM "Klausuren";
+2019-01-10 22:45:02.838 CET [921] ERROR:  column a.Datum does not exist at character 70
+2019-01-10 22:45:02.838 CET [921] HINT:  Perhaps you meant to reference the column "c.Datum".
+2019-01-10 22:45:02.838 CET [921] STATEMENT:  SELECT "Name" , "Student"."matNr", "birDate" , c."Titel",  a."Note", a."Datum" FROM "Student" INNER JOIN (SELECT * FROM "Notenliste") a ON "Student"."matNr" = a."matNr" INNER JOIN (SELECT * FROM "Klausur") c ON a."pNr" = c."pNr" WHERE "Student"."matNr" = 45;
+2019-01-11 00:13:50.512 CET [805] LOG:  received fast shutdown request
+2019-01-11 00:13:50.513 CET [805] LOG:  aborting any active transactions
+2019-01-11 00:13:50.515 CET [1583] FATAL:  terminating connection due to administrator command
+2019-01-11 00:13:50.515 CET [830] FATAL:  terminating connection due to administrator command
+2019-01-11 00:13:50.518 CET [805] LOG:  worker process: logical replication launcher (PID 812) exited with exit code 1
+2019-01-11 00:13:50.518 CET [807] LOG:  shutting down
+2019-01-11 00:13:50.531 CET [805] LOG:  database system is shut down
+2019-01-11 11:25:49.073 CET [11998] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-11 11:25:49.073 CET [11998] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-11 11:25:49.074 CET [11998] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-11 11:25:49.109 CET [11999] LOG:  database system was shut down at 2019-01-11 00:13:50 CET
+2019-01-11 11:25:49.118 CET [11998] LOG:  database system is ready to accept connections
+2019-01-11 11:32:37.519 CET [11998] LOG:  received fast shutdown request
+2019-01-11 11:32:37.519 CET [11998] LOG:  aborting any active transactions
+2019-01-11 11:32:37.521 CET [12021] FATAL:  terminating connection due to administrator command
+2019-01-11 11:32:37.521 CET [12015] FATAL:  terminating connection due to administrator command
+2019-01-11 11:32:37.522 CET [11998] LOG:  worker process: logical replication launcher (PID 12005) exited with exit code 1
+2019-01-11 11:32:37.522 CET [12000] LOG:  shutting down
+2019-01-11 11:32:37.528 CET [11998] LOG:  database system is shut down
+2019-01-16 09:54:02.479 CET [732] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-16 09:54:02.480 CET [732] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-16 09:54:02.480 CET [732] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-16 09:54:02.514 CET [733] LOG:  database system was shut down at 2019-01-11 11:32:37 CET
+2019-01-16 09:54:02.524 CET [732] LOG:  database system is ready to accept connections
+2019-01-16 10:13:22.711 CET [921] ERROR:  integer out of range
+2019-01-16 10:13:22.711 CET [921] STATEMENT:  INSERT INTO "Klausur"("Titel", "pNr") VALUES ('Ssfsdf', 21312412421421421412);
+2019-01-16 10:14:17.546 CET [921] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-16 10:14:17.546 CET [921] DETAIL:  Key ("pNr", "matNr")=(33, 12) already exists.
+2019-01-16 10:14:17.546 CET [921] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 33, 12);
+2019-01-16 11:07:26.423 CET [1383] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-16 11:07:26.423 CET [1383] DETAIL:  Key ("pNr", "matNr")=(11, 12) already exists.
+2019-01-16 11:07:26.423 CET [1383] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 11, 12);
+2019-01-16 11:52:36.771 CET [1744] ERROR:  relation "Klausuren" does not exist at character 15
+2019-01-16 11:52:36.771 CET [1744] STATEMENT:  SELECT * FROM "Klausuren";
+2019-01-16 11:54:29.677 CET [1767] ERROR:  column "Datum" is of type date but expression is of type integer at character 69
+2019-01-16 11:54:29.677 CET [1767] HINT:  You will need to rewrite or cast the expression.
+2019-01-16 11:54:29.677 CET [1767] STATEMENT:  INSERT INTO "Klausur"("Titel", "pNr", "Datum") VALUES ('Mathe2', 1, 10-10-2019);
+2019-01-16 11:54:34.788 CET [1767] ERROR:  column "Datum" is of type date but expression is of type integer at character 69
+2019-01-16 11:54:34.788 CET [1767] HINT:  You will need to rewrite or cast the expression.
+2019-01-16 11:54:34.788 CET [1767] STATEMENT:  INSERT INTO "Klausur"("Titel", "pNr", "Datum") VALUES ('Mathe2', 2, 10-10-2019);
+2019-01-16 12:08:34.113 CET [1825] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-16 12:08:34.113 CET [1825] DETAIL:  Key ("pNr", "matNr")=(1, 12) already exists.
+2019-01-16 12:08:34.113 CET [1825] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (6.0, 1, 12);
+2019-01-16 12:08:40.221 CET [1825] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-16 12:08:40.221 CET [1825] DETAIL:  Key ("pNr", "matNr")=(23, 12) already exists.
+2019-01-16 12:08:40.221 CET [1825] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (6.0, 23, 12);
+2019-01-16 12:20:20.898 CET [1902] ERROR:  duplicate key value violates unique constraint "exam_pkey"
+2019-01-16 12:20:20.898 CET [1902] DETAIL:  Key ("pNr")=(21) already exists.
+2019-01-16 12:20:20.898 CET [1902] STATEMENT:  INSERT INTO "Klausur"("Titel", "pNr", "Datum") VALUES ('Aasdasdaasdasdsadasd', 21, to_timestamp('10-10-2020', 'dd-mm-yyyy'));
+2019-01-16 14:39:18.465 CET [732] LOG:  received fast shutdown request
+2019-01-16 14:39:18.466 CET [732] LOG:  aborting any active transactions
+2019-01-16 14:39:18.467 CET [1902] FATAL:  terminating connection due to administrator command
+2019-01-16 14:39:18.467 CET [1744] FATAL:  terminating connection due to administrator command
+2019-01-16 14:39:18.476 CET [732] LOG:  worker process: logical replication launcher (PID 739) exited with exit code 1
+2019-01-16 14:39:18.476 CET [734] LOG:  shutting down
+2019-01-16 14:39:18.485 CET [732] LOG:  database system is shut down
+2019-01-19 15:55:54.327 CET [3148] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-19 15:55:54.328 CET [3148] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-19 15:55:54.329 CET [3148] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-19 15:55:54.367 CET [3149] LOG:  database system was shut down at 2019-01-16 14:39:18 CET
+2019-01-19 15:55:54.378 CET [3148] LOG:  database system is ready to accept connections
+2019-01-19 19:03:17.749 CET [3148] LOG:  received fast shutdown request
+2019-01-19 19:03:17.750 CET [3148] LOG:  aborting any active transactions
+2019-01-19 19:03:17.752 CET [3148] LOG:  worker process: logical replication launcher (PID 3155) exited with exit code 1
+2019-01-19 19:03:17.753 CET [3150] LOG:  shutting down
+2019-01-19 19:03:17.764 CET [3148] LOG:  database system is shut down
+2019-01-21 13:23:04.483 CET [1395] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-21 13:23:04.483 CET [1395] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-21 13:23:04.484 CET [1395] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-21 13:23:04.521 CET [1396] LOG:  database system was shut down at 2019-01-19 19:03:17 CET
+2019-01-21 13:23:04.530 CET [1395] LOG:  database system is ready to accept connections
+2019-01-21 13:23:12.848 CET [1420] ERROR:  syntax error at or near ""Klausur"" at character 10
+2019-01-21 13:23:12.848 CET [1420] STATEMENT:  SELECT * "Klausur";
+2019-01-21 13:24:50.015 CET [1420] ERROR:  syntax error at or near ""Klausur"" at character 6
+2019-01-21 13:24:50.015 CET [1420] STATEMENT:  DROP "Klausur";
+2019-01-21 14:02:05.347 CET [1451] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 14:02:05.347 CET [1451] DETAIL:  Key ("pNr", "matNr")=(1, 21321) already exists.
+2019-01-21 14:02:05.347 CET [1451] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 1, 21321);
+2019-01-21 14:05:21.814 CET [1451] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 14:05:21.814 CET [1451] DETAIL:  Key ("pNr", "matNr")=(2, 3) already exists.
+2019-01-21 14:05:21.814 CET [1451] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 2, 3);
+2019-01-21 14:46:54.296 CET [1420] ERROR:  syntax error at or near ""Klausur"" at character 6
+2019-01-21 14:46:54.296 CET [1420] STATEMENT:  DROP "Klausur";
+2019-01-21 14:47:04.665 CET [1420] ERROR:  syntax error at or near ""Klausur"" at character 6
+2019-01-21 14:47:04.665 CET [1420] STATEMENT:  DROP "Klausur";
+2019-01-21 14:47:34.884 CET [7036] ERROR:  relation "Klausur" does not exist at character 19
+2019-01-21 14:47:34.884 CET [7036] STATEMENT:  SELECT "pNr" from "Klausur";
+2019-01-21 14:47:55.115 CET [7036] ERROR:  relation "Klausur" does not exist at character 19
+2019-01-21 14:47:55.115 CET [7036] STATEMENT:  SELECT "pNr" from "Klausur";
+2019-01-21 14:47:56.691 CET [7036] ERROR:  relation "Student" does not exist at character 21
+2019-01-21 14:47:56.691 CET [7036] STATEMENT:  SELECT "matNr" from "Student"
+2019-01-21 14:54:40.147 CET [1420] ERROR:  syntax error at or near ""Klausur"" at character 6
+2019-01-21 14:54:40.147 CET [1420] STATEMENT:  DROP "Klausur";
+2019-01-21 15:14:21.480 CET [7697] ERROR:  date/time field value out of range: "1987-05-03"
+2019-01-21 15:14:21.480 CET [7697] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (5001, 'Tomas Schwital', to_timestamp('1987-05-03', 'dd-mm-yyyy'));
+2019-01-21 15:16:41.463 CET [7747] ERROR:  date/time field value out of range: "04d-02m-81yyy"
+2019-01-21 15:16:41.463 CET [7747] STATEMENT:  INSERT INTO "Student"("matNr", "Name", "birDate") VALUES (5001, 'Gerdi Scholz', to_timestamp('04d-02m-81yyy', 'dd-mm-yyyy'));
+2019-01-21 15:39:21.485 CET [8241] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:39:21.485 CET [8241] DETAIL:  Key ("pNr", "matNr")=(4, 5168) already exists.
+2019-01-21 15:39:21.485 CET [8241] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 4, 5168);
+2019-01-21 15:39:27.327 CET [8243] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:39:27.327 CET [8243] DETAIL:  Key ("pNr", "matNr")=(10, 5474) already exists.
+2019-01-21 15:39:27.327 CET [8243] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 10, 5474);
+2019-01-21 15:40:43.057 CET [1420] ERROR:  column "pnr" does not exist at character 14
+2019-01-21 15:40:43.057 CET [1420] HINT:  Perhaps you meant to reference the column "Notenliste.pNr".
+2019-01-21 15:40:43.057 CET [1420] STATEMENT:  SELECT COUNT(pNr), matNr FROM "Notenliste";
+2019-01-21 15:40:57.886 CET [1420] ERROR:  column "Notenliste.pNr" does not exist at character 14
+2019-01-21 15:40:57.886 CET [1420] STATEMENT:  SELECT COUNT("Notenliste.pNr"), matNr FROM "Notenliste";
+2019-01-21 15:41:28.166 CET [1420] ERROR:  column "matnr" does not exist at character 35
+2019-01-21 15:41:28.166 CET [1420] HINT:  Perhaps you meant to reference the column "Notenliste.matNr".
+2019-01-21 15:41:28.166 CET [1420] STATEMENT:  SELECT COUNT("Notenliste"."pNr"), matNr FROM "Notenliste";
+2019-01-21 15:41:42.980 CET [1420] ERROR:  column "Notenliste.matNr" must appear in the GROUP BY clause or be used in an aggregate function at character 35
+2019-01-21 15:41:42.980 CET [1420] STATEMENT:  SELECT COUNT("Notenliste"."pNr"), "Notenliste"."matNr" FROM "Notenliste";
+2019-01-21 15:42:39.823 CET [1420] ERROR:  syntax error at or near "DESC" at character 113
+2019-01-21 15:42:39.823 CET [1420] STATEMENT:  SELECT COUNT("Notenliste"."pNr"), "Notenliste"."matNr" FROM "Notenliste" GROUP BY "Notenliste"."matNr" ORDER BY DESC;
+2019-01-21 15:42:44.431 CET [1420] ERROR:  column "DESC" does not exist at character 113
+2019-01-21 15:42:44.431 CET [1420] STATEMENT:  SELECT COUNT("Notenliste"."pNr"), "Notenliste"."matNr" FROM "Notenliste" GROUP BY "Notenliste"."matNr" ORDER BY "DESC";
+2019-01-21 15:43:50.173 CET [1420] ERROR:  syntax error at or near "SELECT" at character 115
+2019-01-21 15:43:50.173 CET [1420] STATEMENT:  SELECT COUNT("Notenliste"."pNr" ), "Notenliste"."matNr" FROM "Notenliste" GROUP BY "Notenliste"."matNr" ORDER BY 
+	SELECT COUNT("Notenliste"."pNr") AS "x", "Notenliste"."matNr" FROM "Notenliste" GROUP BY "Notenliste"."matNr" ORDER BY "x" ASC;
+2019-01-21 15:45:16.967 CET [8347] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:45:16.967 CET [8347] DETAIL:  Key ("pNr", "matNr")=(2, 5160) already exists.
+2019-01-21 15:45:16.967 CET [8347] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 2, 5160);
+2019-01-21 15:45:18.416 CET [8349] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:45:18.416 CET [8349] DETAIL:  Key ("pNr", "matNr")=(8, 5916) already exists.
+2019-01-21 15:45:18.416 CET [8349] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 8, 5916);
+2019-01-21 15:45:19.456 CET [8351] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:45:19.456 CET [8351] DETAIL:  Key ("pNr", "matNr")=(2, 5163) already exists.
+2019-01-21 15:45:19.456 CET [8351] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 2, 5163);
+2019-01-21 15:45:55.203 CET [8362] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:45:55.203 CET [8362] DETAIL:  Key ("pNr", "matNr")=(4, 5386) already exists.
+2019-01-21 15:45:55.203 CET [8362] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 4, 5386);
+2019-01-21 15:45:56.092 CET [8364] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:45:56.092 CET [8364] DETAIL:  Key ("pNr", "matNr")=(12, 5688) already exists.
+2019-01-21 15:45:56.092 CET [8364] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 12, 5688);
+2019-01-21 15:46:20.848 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.848 CET [8373] DETAIL:  Key ("pNr", "matNr")=(1, 5464) already exists.
+2019-01-21 15:46:20.848 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 1, 5464);
+2019-01-21 15:46:20.888 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.888 CET [8373] DETAIL:  Key ("pNr", "matNr")=(8, 5544) already exists.
+2019-01-21 15:46:20.888 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 8, 5544);
+2019-01-21 15:46:20.891 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.891 CET [8373] DETAIL:  Key ("pNr", "matNr")=(4, 5863) already exists.
+2019-01-21 15:46:20.891 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 4, 5863);
+2019-01-21 15:46:20.894 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.894 CET [8373] DETAIL:  Key ("pNr", "matNr")=(4, 5879) already exists.
+2019-01-21 15:46:20.894 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 4, 5879);
+2019-01-21 15:46:20.899 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.899 CET [8373] DETAIL:  Key ("pNr", "matNr")=(7, 5812) already exists.
+2019-01-21 15:46:20.899 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 7, 5812);
+2019-01-21 15:46:20.908 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.908 CET [8373] DETAIL:  Key ("pNr", "matNr")=(7, 5266) already exists.
+2019-01-21 15:46:20.908 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 7, 5266);
+2019-01-21 15:46:20.913 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.913 CET [8373] DETAIL:  Key ("pNr", "matNr")=(3, 5300) already exists.
+2019-01-21 15:46:20.913 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 3, 5300);
+2019-01-21 15:46:20.917 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.917 CET [8373] DETAIL:  Key ("pNr", "matNr")=(12, 5216) already exists.
+2019-01-21 15:46:20.917 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 12, 5216);
+2019-01-21 15:46:20.917 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.917 CET [8373] DETAIL:  Key ("pNr", "matNr")=(6, 5351) already exists.
+2019-01-21 15:46:20.917 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 6, 5351);
+2019-01-21 15:46:20.927 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.927 CET [8373] DETAIL:  Key ("pNr", "matNr")=(12, 5499) already exists.
+2019-01-21 15:46:20.927 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 12, 5499);
+2019-01-21 15:46:20.944 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.944 CET [8373] DETAIL:  Key ("pNr", "matNr")=(6, 5922) already exists.
+2019-01-21 15:46:20.944 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 6, 5922);
+2019-01-21 15:46:20.945 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.945 CET [8373] DETAIL:  Key ("pNr", "matNr")=(7, 5898) already exists.
+2019-01-21 15:46:20.945 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 7, 5898);
+2019-01-21 15:46:20.951 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.951 CET [8373] DETAIL:  Key ("pNr", "matNr")=(12, 5794) already exists.
+2019-01-21 15:46:20.951 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 12, 5794);
+2019-01-21 15:46:20.951 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.951 CET [8373] DETAIL:  Key ("pNr", "matNr")=(3, 5362) already exists.
+2019-01-21 15:46:20.951 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 3, 5362);
+2019-01-21 15:46:20.952 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.952 CET [8373] DETAIL:  Key ("pNr", "matNr")=(10, 5985) already exists.
+2019-01-21 15:46:20.952 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 10, 5985);
+2019-01-21 15:46:20.955 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.955 CET [8373] DETAIL:  Key ("pNr", "matNr")=(3, 5362) already exists.
+2019-01-21 15:46:20.955 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 3, 5362);
+2019-01-21 15:46:20.956 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.956 CET [8373] DETAIL:  Key ("pNr", "matNr")=(11, 5138) already exists.
+2019-01-21 15:46:20.956 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 11, 5138);
+2019-01-21 15:46:20.958 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.958 CET [8373] DETAIL:  Key ("pNr", "matNr")=(8, 5840) already exists.
+2019-01-21 15:46:20.958 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 8, 5840);
+2019-01-21 15:46:20.963 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.963 CET [8373] DETAIL:  Key ("pNr", "matNr")=(3, 5336) already exists.
+2019-01-21 15:46:20.963 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 3, 5336);
+2019-01-21 15:46:20.966 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.966 CET [8373] DETAIL:  Key ("pNr", "matNr")=(7, 5878) already exists.
+2019-01-21 15:46:20.966 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 7, 5878);
+2019-01-21 15:46:20.975 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.975 CET [8373] DETAIL:  Key ("pNr", "matNr")=(11, 5555) already exists.
+2019-01-21 15:46:20.975 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 11, 5555);
+2019-01-21 15:46:20.981 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.981 CET [8373] DETAIL:  Key ("pNr", "matNr")=(9, 5681) already exists.
+2019-01-21 15:46:20.981 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 9, 5681);
+2019-01-21 15:46:20.984 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.984 CET [8373] DETAIL:  Key ("pNr", "matNr")=(2, 5738) already exists.
+2019-01-21 15:46:20.984 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 2, 5738);
+2019-01-21 15:46:20.984 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.984 CET [8373] DETAIL:  Key ("pNr", "matNr")=(1, 5942) already exists.
+2019-01-21 15:46:20.984 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 1, 5942);
+2019-01-21 15:46:20.989 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:20.989 CET [8373] DETAIL:  Key ("pNr", "matNr")=(7, 5324) already exists.
+2019-01-21 15:46:20.989 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 7, 5324);
+2019-01-21 15:46:21.007 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:21.007 CET [8373] DETAIL:  Key ("pNr", "matNr")=(9, 5172) already exists.
+2019-01-21 15:46:21.007 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 9, 5172);
+2019-01-21 15:46:21.009 CET [8373] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:21.009 CET [8373] DETAIL:  Key ("pNr", "matNr")=(12, 5364) already exists.
+2019-01-21 15:46:21.009 CET [8373] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 12, 5364);
+2019-01-21 15:46:34.277 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.277 CET [8382] DETAIL:  Key ("pNr", "matNr")=(4, 5917) already exists.
+2019-01-21 15:46:34.277 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 4, 5917);
+2019-01-21 15:46:34.280 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.280 CET [8382] DETAIL:  Key ("pNr", "matNr")=(7, 5898) already exists.
+2019-01-21 15:46:34.280 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 7, 5898);
+2019-01-21 15:46:34.285 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.285 CET [8382] DETAIL:  Key ("pNr", "matNr")=(8, 5382) already exists.
+2019-01-21 15:46:34.285 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 8, 5382);
+2019-01-21 15:46:34.290 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.290 CET [8382] DETAIL:  Key ("pNr", "matNr")=(10, 5394) already exists.
+2019-01-21 15:46:34.290 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 10, 5394);
+2019-01-21 15:46:34.292 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.292 CET [8382] DETAIL:  Key ("pNr", "matNr")=(9, 5861) already exists.
+2019-01-21 15:46:34.292 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 9, 5861);
+2019-01-21 15:46:34.292 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.292 CET [8382] DETAIL:  Key ("pNr", "matNr")=(2, 5619) already exists.
+2019-01-21 15:46:34.292 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 2, 5619);
+2019-01-21 15:46:34.296 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.296 CET [8382] DETAIL:  Key ("pNr", "matNr")=(6, 5893) already exists.
+2019-01-21 15:46:34.296 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 6, 5893);
+2019-01-21 15:46:34.305 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.305 CET [8382] DETAIL:  Key ("pNr", "matNr")=(2, 5094) already exists.
+2019-01-21 15:46:34.305 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 2, 5094);
+2019-01-21 15:46:34.310 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.310 CET [8382] DETAIL:  Key ("pNr", "matNr")=(7, 5940) already exists.
+2019-01-21 15:46:34.310 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 7, 5940);
+2019-01-21 15:46:34.316 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.316 CET [8382] DETAIL:  Key ("pNr", "matNr")=(10, 5125) already exists.
+2019-01-21 15:46:34.316 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 10, 5125);
+2019-01-21 15:46:34.329 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.329 CET [8382] DETAIL:  Key ("pNr", "matNr")=(12, 5309) already exists.
+2019-01-21 15:46:34.329 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 12, 5309);
+2019-01-21 15:46:34.332 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.332 CET [8382] DETAIL:  Key ("pNr", "matNr")=(12, 5312) already exists.
+2019-01-21 15:46:34.332 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 12, 5312);
+2019-01-21 15:46:34.332 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.332 CET [8382] DETAIL:  Key ("pNr", "matNr")=(9, 5267) already exists.
+2019-01-21 15:46:34.332 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 9, 5267);
+2019-01-21 15:46:34.332 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.332 CET [8382] DETAIL:  Key ("pNr", "matNr")=(4, 5400) already exists.
+2019-01-21 15:46:34.332 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 4, 5400);
+2019-01-21 15:46:34.333 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.333 CET [8382] DETAIL:  Key ("pNr", "matNr")=(12, 5193) already exists.
+2019-01-21 15:46:34.333 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 12, 5193);
+2019-01-21 15:46:34.339 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.339 CET [8382] DETAIL:  Key ("pNr", "matNr")=(8, 5609) already exists.
+2019-01-21 15:46:34.339 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 8, 5609);
+2019-01-21 15:46:34.345 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.345 CET [8382] DETAIL:  Key ("pNr", "matNr")=(8, 5818) already exists.
+2019-01-21 15:46:34.345 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 8, 5818);
+2019-01-21 15:46:34.348 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.348 CET [8382] DETAIL:  Key ("pNr", "matNr")=(4, 5182) already exists.
+2019-01-21 15:46:34.348 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 4, 5182);
+2019-01-21 15:46:34.354 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.354 CET [8382] DETAIL:  Key ("pNr", "matNr")=(4, 5431) already exists.
+2019-01-21 15:46:34.354 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 4, 5431);
+2019-01-21 15:46:34.356 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.356 CET [8382] DETAIL:  Key ("pNr", "matNr")=(2, 5876) already exists.
+2019-01-21 15:46:34.356 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 2, 5876);
+2019-01-21 15:46:34.358 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.358 CET [8382] DETAIL:  Key ("pNr", "matNr")=(8, 5387) already exists.
+2019-01-21 15:46:34.358 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 8, 5387);
+2019-01-21 15:46:34.359 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.359 CET [8382] DETAIL:  Key ("pNr", "matNr")=(11, 5381) already exists.
+2019-01-21 15:46:34.359 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 11, 5381);
+2019-01-21 15:46:34.370 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.370 CET [8382] DETAIL:  Key ("pNr", "matNr")=(11, 5850) already exists.
+2019-01-21 15:46:34.370 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 11, 5850);
+2019-01-21 15:46:34.371 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.371 CET [8382] DETAIL:  Key ("pNr", "matNr")=(4, 5215) already exists.
+2019-01-21 15:46:34.371 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 4, 5215);
+2019-01-21 15:46:34.372 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.372 CET [8382] DETAIL:  Key ("pNr", "matNr")=(10, 5412) already exists.
+2019-01-21 15:46:34.372 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 10, 5412);
+2019-01-21 15:46:34.374 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.374 CET [8382] DETAIL:  Key ("pNr", "matNr")=(11, 5711) already exists.
+2019-01-21 15:46:34.374 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 11, 5711);
+2019-01-21 15:46:34.375 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.375 CET [8382] DETAIL:  Key ("pNr", "matNr")=(11, 5267) already exists.
+2019-01-21 15:46:34.375 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 11, 5267);
+2019-01-21 15:46:34.379 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.379 CET [8382] DETAIL:  Key ("pNr", "matNr")=(8, 5382) already exists.
+2019-01-21 15:46:34.379 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 8, 5382);
+2019-01-21 15:46:34.379 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.379 CET [8382] DETAIL:  Key ("pNr", "matNr")=(1, 5403) already exists.
+2019-01-21 15:46:34.379 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 1, 5403);
+2019-01-21 15:46:34.380 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.380 CET [8382] DETAIL:  Key ("pNr", "matNr")=(8, 5314) already exists.
+2019-01-21 15:46:34.380 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 8, 5314);
+2019-01-21 15:46:34.382 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.382 CET [8382] DETAIL:  Key ("pNr", "matNr")=(9, 5423) already exists.
+2019-01-21 15:46:34.382 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 9, 5423);
+2019-01-21 15:46:34.383 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.383 CET [8382] DETAIL:  Key ("pNr", "matNr")=(7, 5446) already exists.
+2019-01-21 15:46:34.383 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 7, 5446);
+2019-01-21 15:46:34.385 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.385 CET [8382] DETAIL:  Key ("pNr", "matNr")=(10, 5253) already exists.
+2019-01-21 15:46:34.385 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 10, 5253);
+2019-01-21 15:46:34.391 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.391 CET [8382] DETAIL:  Key ("pNr", "matNr")=(11, 5703) already exists.
+2019-01-21 15:46:34.391 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 11, 5703);
+2019-01-21 15:46:34.400 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.400 CET [8382] DETAIL:  Key ("pNr", "matNr")=(9, 5453) already exists.
+2019-01-21 15:46:34.400 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 9, 5453);
+2019-01-21 15:46:34.404 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.404 CET [8382] DETAIL:  Key ("pNr", "matNr")=(11, 5737) already exists.
+2019-01-21 15:46:34.404 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 11, 5737);
+2019-01-21 15:46:34.406 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.406 CET [8382] DETAIL:  Key ("pNr", "matNr")=(8, 5188) already exists.
+2019-01-21 15:46:34.406 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 8, 5188);
+2019-01-21 15:46:34.411 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.411 CET [8382] DETAIL:  Key ("pNr", "matNr")=(9, 5652) already exists.
+2019-01-21 15:46:34.411 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 9, 5652);
+2019-01-21 15:46:34.412 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.412 CET [8382] DETAIL:  Key ("pNr", "matNr")=(2, 5861) already exists.
+2019-01-21 15:46:34.412 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 2, 5861);
+2019-01-21 15:46:34.415 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.415 CET [8382] DETAIL:  Key ("pNr", "matNr")=(1, 5746) already exists.
+2019-01-21 15:46:34.415 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 1, 5746);
+2019-01-21 15:46:34.416 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.416 CET [8382] DETAIL:  Key ("pNr", "matNr")=(11, 5461) already exists.
+2019-01-21 15:46:34.416 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 11, 5461);
+2019-01-21 15:46:34.423 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.423 CET [8382] DETAIL:  Key ("pNr", "matNr")=(7, 5206) already exists.
+2019-01-21 15:46:34.423 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 7, 5206);
+2019-01-21 15:46:34.425 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.425 CET [8382] DETAIL:  Key ("pNr", "matNr")=(3, 5272) already exists.
+2019-01-21 15:46:34.425 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 3, 5272);
+2019-01-21 15:46:34.425 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.425 CET [8382] DETAIL:  Key ("pNr", "matNr")=(11, 5916) already exists.
+2019-01-21 15:46:34.425 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 11, 5916);
+2019-01-21 15:46:34.426 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.426 CET [8382] DETAIL:  Key ("pNr", "matNr")=(9, 5118) already exists.
+2019-01-21 15:46:34.426 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 9, 5118);
+2019-01-21 15:46:34.427 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.427 CET [8382] DETAIL:  Key ("pNr", "matNr")=(10, 5115) already exists.
+2019-01-21 15:46:34.427 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 10, 5115);
+2019-01-21 15:46:34.427 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.427 CET [8382] DETAIL:  Key ("pNr", "matNr")=(10, 5877) already exists.
+2019-01-21 15:46:34.427 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 10, 5877);
+2019-01-21 15:46:34.428 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.428 CET [8382] DETAIL:  Key ("pNr", "matNr")=(12, 5730) already exists.
+2019-01-21 15:46:34.428 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 12, 5730);
+2019-01-21 15:46:34.431 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.431 CET [8382] DETAIL:  Key ("pNr", "matNr")=(7, 5240) already exists.
+2019-01-21 15:46:34.431 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 7, 5240);
+2019-01-21 15:46:34.432 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.432 CET [8382] DETAIL:  Key ("pNr", "matNr")=(6, 5594) already exists.
+2019-01-21 15:46:34.432 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 6, 5594);
+2019-01-21 15:46:34.433 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.433 CET [8382] DETAIL:  Key ("pNr", "matNr")=(8, 5626) already exists.
+2019-01-21 15:46:34.433 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 8, 5626);
+2019-01-21 15:46:34.436 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.436 CET [8382] DETAIL:  Key ("pNr", "matNr")=(1, 5746) already exists.
+2019-01-21 15:46:34.436 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 1, 5746);
+2019-01-21 15:46:34.437 CET [8382] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:34.437 CET [8382] DETAIL:  Key ("pNr", "matNr")=(12, 5587) already exists.
+2019-01-21 15:46:34.437 CET [8382] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 12, 5587);
+2019-01-21 15:46:35.548 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.548 CET [8384] DETAIL:  Key ("pNr", "matNr")=(3, 5617) already exists.
+2019-01-21 15:46:35.548 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 3, 5617);
+2019-01-21 15:46:35.552 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.552 CET [8384] DETAIL:  Key ("pNr", "matNr")=(12, 5393) already exists.
+2019-01-21 15:46:35.552 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 12, 5393);
+2019-01-21 15:46:35.554 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.554 CET [8384] DETAIL:  Key ("pNr", "matNr")=(6, 5293) already exists.
+2019-01-21 15:46:35.554 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 6, 5293);
+2019-01-21 15:46:35.555 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.555 CET [8384] DETAIL:  Key ("pNr", "matNr")=(9, 5291) already exists.
+2019-01-21 15:46:35.555 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 9, 5291);
+2019-01-21 15:46:35.557 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.557 CET [8384] DETAIL:  Key ("pNr", "matNr")=(2, 5861) already exists.
+2019-01-21 15:46:35.557 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 2, 5861);
+2019-01-21 15:46:35.561 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.561 CET [8384] DETAIL:  Key ("pNr", "matNr")=(1, 5654) already exists.
+2019-01-21 15:46:35.561 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 1, 5654);
+2019-01-21 15:46:35.563 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.563 CET [8384] DETAIL:  Key ("pNr", "matNr")=(6, 5430) already exists.
+2019-01-21 15:46:35.563 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 6, 5430);
+2019-01-21 15:46:35.564 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.564 CET [8384] DETAIL:  Key ("pNr", "matNr")=(1, 5440) already exists.
+2019-01-21 15:46:35.564 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 1, 5440);
+2019-01-21 15:46:35.568 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.568 CET [8384] DETAIL:  Key ("pNr", "matNr")=(8, 5480) already exists.
+2019-01-21 15:46:35.568 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 8, 5480);
+2019-01-21 15:46:35.568 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.568 CET [8384] DETAIL:  Key ("pNr", "matNr")=(1, 5472) already exists.
+2019-01-21 15:46:35.568 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 1, 5472);
+2019-01-21 15:46:35.568 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.568 CET [8384] DETAIL:  Key ("pNr", "matNr")=(11, 5540) already exists.
+2019-01-21 15:46:35.568 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 11, 5540);
+2019-01-21 15:46:35.570 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.570 CET [8384] DETAIL:  Key ("pNr", "matNr")=(10, 5332) already exists.
+2019-01-21 15:46:35.570 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 10, 5332);
+2019-01-21 15:46:35.571 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.571 CET [8384] DETAIL:  Key ("pNr", "matNr")=(6, 5167) already exists.
+2019-01-21 15:46:35.571 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 6, 5167);
+2019-01-21 15:46:35.573 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.573 CET [8384] DETAIL:  Key ("pNr", "matNr")=(4, 5928) already exists.
+2019-01-21 15:46:35.573 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 4, 5928);
+2019-01-21 15:46:35.574 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.574 CET [8384] DETAIL:  Key ("pNr", "matNr")=(7, 5026) already exists.
+2019-01-21 15:46:35.574 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 7, 5026);
+2019-01-21 15:46:35.574 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.574 CET [8384] DETAIL:  Key ("pNr", "matNr")=(7, 5404) already exists.
+2019-01-21 15:46:35.574 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 7, 5404);
+2019-01-21 15:46:35.575 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.575 CET [8384] DETAIL:  Key ("pNr", "matNr")=(4, 5309) already exists.
+2019-01-21 15:46:35.575 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 4, 5309);
+2019-01-21 15:46:35.577 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.577 CET [8384] DETAIL:  Key ("pNr", "matNr")=(2, 5922) already exists.
+2019-01-21 15:46:35.577 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 2, 5922);
+2019-01-21 15:46:35.578 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.578 CET [8384] DETAIL:  Key ("pNr", "matNr")=(9, 5327) already exists.
+2019-01-21 15:46:35.578 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 9, 5327);
+2019-01-21 15:46:35.594 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.594 CET [8384] DETAIL:  Key ("pNr", "matNr")=(3, 5834) already exists.
+2019-01-21 15:46:35.594 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 3, 5834);
+2019-01-21 15:46:35.597 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.597 CET [8384] DETAIL:  Key ("pNr", "matNr")=(3, 5790) already exists.
+2019-01-21 15:46:35.597 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 3, 5790);
+2019-01-21 15:46:35.601 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.601 CET [8384] DETAIL:  Key ("pNr", "matNr")=(11, 5879) already exists.
+2019-01-21 15:46:35.601 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 11, 5879);
+2019-01-21 15:46:35.602 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.602 CET [8384] DETAIL:  Key ("pNr", "matNr")=(8, 5979) already exists.
+2019-01-21 15:46:35.602 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 8, 5979);
+2019-01-21 15:46:35.612 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.612 CET [8384] DETAIL:  Key ("pNr", "matNr")=(2, 5490) already exists.
+2019-01-21 15:46:35.612 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 2, 5490);
+2019-01-21 15:46:35.612 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.612 CET [8384] DETAIL:  Key ("pNr", "matNr")=(10, 5748) already exists.
+2019-01-21 15:46:35.612 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 10, 5748);
+2019-01-21 15:46:35.614 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.614 CET [8384] DETAIL:  Key ("pNr", "matNr")=(8, 5596) already exists.
+2019-01-21 15:46:35.614 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 8, 5596);
+2019-01-21 15:46:35.622 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.622 CET [8384] DETAIL:  Key ("pNr", "matNr")=(6, 5611) already exists.
+2019-01-21 15:46:35.622 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 6, 5611);
+2019-01-21 15:46:35.622 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.622 CET [8384] DETAIL:  Key ("pNr", "matNr")=(1, 5392) already exists.
+2019-01-21 15:46:35.622 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 1, 5392);
+2019-01-21 15:46:35.625 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.625 CET [8384] DETAIL:  Key ("pNr", "matNr")=(9, 5500) already exists.
+2019-01-21 15:46:35.625 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 9, 5500);
+2019-01-21 15:46:35.628 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.628 CET [8384] DETAIL:  Key ("pNr", "matNr")=(10, 5985) already exists.
+2019-01-21 15:46:35.628 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 10, 5985);
+2019-01-21 15:46:35.630 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.630 CET [8384] DETAIL:  Key ("pNr", "matNr")=(11, 5267) already exists.
+2019-01-21 15:46:35.630 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 11, 5267);
+2019-01-21 15:46:35.631 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.631 CET [8384] DETAIL:  Key ("pNr", "matNr")=(10, 5343) already exists.
+2019-01-21 15:46:35.631 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 10, 5343);
+2019-01-21 15:46:35.633 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.633 CET [8384] DETAIL:  Key ("pNr", "matNr")=(9, 5264) already exists.
+2019-01-21 15:46:35.633 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 9, 5264);
+2019-01-21 15:46:35.634 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.634 CET [8384] DETAIL:  Key ("pNr", "matNr")=(4, 5616) already exists.
+2019-01-21 15:46:35.634 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 4, 5616);
+2019-01-21 15:46:35.641 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.641 CET [8384] DETAIL:  Key ("pNr", "matNr")=(7, 5672) already exists.
+2019-01-21 15:46:35.641 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 7, 5672);
+2019-01-21 15:46:35.642 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.642 CET [8384] DETAIL:  Key ("pNr", "matNr")=(2, 5097) already exists.
+2019-01-21 15:46:35.642 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 2, 5097);
+2019-01-21 15:46:35.644 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.644 CET [8384] DETAIL:  Key ("pNr", "matNr")=(1, 5282) already exists.
+2019-01-21 15:46:35.644 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 1, 5282);
+2019-01-21 15:46:35.652 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.652 CET [8384] DETAIL:  Key ("pNr", "matNr")=(4, 5896) already exists.
+2019-01-21 15:46:35.652 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 4, 5896);
+2019-01-21 15:46:35.658 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.658 CET [8384] DETAIL:  Key ("pNr", "matNr")=(11, 5834) already exists.
+2019-01-21 15:46:35.658 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 11, 5834);
+2019-01-21 15:46:35.667 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.667 CET [8384] DETAIL:  Key ("pNr", "matNr")=(9, 5205) already exists.
+2019-01-21 15:46:35.667 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 9, 5205);
+2019-01-21 15:46:35.675 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.675 CET [8384] DETAIL:  Key ("pNr", "matNr")=(4, 5999) already exists.
+2019-01-21 15:46:35.675 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 4, 5999);
+2019-01-21 15:46:35.678 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.678 CET [8384] DETAIL:  Key ("pNr", "matNr")=(10, 5349) already exists.
+2019-01-21 15:46:35.678 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 10, 5349);
+2019-01-21 15:46:35.680 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.680 CET [8384] DETAIL:  Key ("pNr", "matNr")=(2, 5133) already exists.
+2019-01-21 15:46:35.680 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 2, 5133);
+2019-01-21 15:46:35.681 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.681 CET [8384] DETAIL:  Key ("pNr", "matNr")=(4, 5787) already exists.
+2019-01-21 15:46:35.681 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 4, 5787);
+2019-01-21 15:46:35.688 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.688 CET [8384] DETAIL:  Key ("pNr", "matNr")=(6, 5430) already exists.
+2019-01-21 15:46:35.688 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 6, 5430);
+2019-01-21 15:46:35.690 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.690 CET [8384] DETAIL:  Key ("pNr", "matNr")=(3, 5882) already exists.
+2019-01-21 15:46:35.690 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 3, 5882);
+2019-01-21 15:46:35.694 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.694 CET [8384] DETAIL:  Key ("pNr", "matNr")=(11, 5837) already exists.
+2019-01-21 15:46:35.694 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 11, 5837);
+2019-01-21 15:46:35.697 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.697 CET [8384] DETAIL:  Key ("pNr", "matNr")=(8, 5748) already exists.
+2019-01-21 15:46:35.697 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 8, 5748);
+2019-01-21 15:46:35.700 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.700 CET [8384] DETAIL:  Key ("pNr", "matNr")=(3, 5034) already exists.
+2019-01-21 15:46:35.700 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 3, 5034);
+2019-01-21 15:46:35.705 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.705 CET [8384] DETAIL:  Key ("pNr", "matNr")=(12, 5590) already exists.
+2019-01-21 15:46:35.705 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 12, 5590);
+2019-01-21 15:46:35.706 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.706 CET [8384] DETAIL:  Key ("pNr", "matNr")=(8, 5986) already exists.
+2019-01-21 15:46:35.706 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 8, 5986);
+2019-01-21 15:46:35.709 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.709 CET [8384] DETAIL:  Key ("pNr", "matNr")=(11, 5302) already exists.
+2019-01-21 15:46:35.709 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 11, 5302);
+2019-01-21 15:46:35.711 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.711 CET [8384] DETAIL:  Key ("pNr", "matNr")=(7, 5791) already exists.
+2019-01-21 15:46:35.711 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 7, 5791);
+2019-01-21 15:46:35.712 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.712 CET [8384] DETAIL:  Key ("pNr", "matNr")=(4, 5932) already exists.
+2019-01-21 15:46:35.712 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 4, 5932);
+2019-01-21 15:46:35.713 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.713 CET [8384] DETAIL:  Key ("pNr", "matNr")=(3, 5259) already exists.
+2019-01-21 15:46:35.713 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 3, 5259);
+2019-01-21 15:46:35.713 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.713 CET [8384] DETAIL:  Key ("pNr", "matNr")=(10, 5287) already exists.
+2019-01-21 15:46:35.713 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 10, 5287);
+2019-01-21 15:46:35.715 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.715 CET [8384] DETAIL:  Key ("pNr", "matNr")=(9, 5351) already exists.
+2019-01-21 15:46:35.715 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 9, 5351);
+2019-01-21 15:46:35.718 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.718 CET [8384] DETAIL:  Key ("pNr", "matNr")=(2, 5104) already exists.
+2019-01-21 15:46:35.718 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 2, 5104);
+2019-01-21 15:46:35.720 CET [8384] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:35.720 CET [8384] DETAIL:  Key ("pNr", "matNr")=(1, 5816) already exists.
+2019-01-21 15:46:35.720 CET [8384] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 1, 5816);
+2019-01-21 15:46:36.576 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.576 CET [8386] DETAIL:  Key ("pNr", "matNr")=(9, 5870) already exists.
+2019-01-21 15:46:36.576 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 9, 5870);
+2019-01-21 15:46:36.579 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.579 CET [8386] DETAIL:  Key ("pNr", "matNr")=(4, 5635) already exists.
+2019-01-21 15:46:36.579 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 4, 5635);
+2019-01-21 15:46:36.585 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.585 CET [8386] DETAIL:  Key ("pNr", "matNr")=(3, 5983) already exists.
+2019-01-21 15:46:36.585 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 3, 5983);
+2019-01-21 15:46:36.593 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.593 CET [8386] DETAIL:  Key ("pNr", "matNr")=(8, 5068) already exists.
+2019-01-21 15:46:36.593 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 8, 5068);
+2019-01-21 15:46:36.597 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.597 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5689) already exists.
+2019-01-21 15:46:36.597 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 12, 5689);
+2019-01-21 15:46:36.603 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.603 CET [8386] DETAIL:  Key ("pNr", "matNr")=(6, 5584) already exists.
+2019-01-21 15:46:36.603 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 6, 5584);
+2019-01-21 15:46:36.605 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.605 CET [8386] DETAIL:  Key ("pNr", "matNr")=(1, 5301) already exists.
+2019-01-21 15:46:36.605 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 1, 5301);
+2019-01-21 15:46:36.606 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.606 CET [8386] DETAIL:  Key ("pNr", "matNr")=(11, 5958) already exists.
+2019-01-21 15:46:36.606 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 11, 5958);
+2019-01-21 15:46:36.610 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.610 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5370) already exists.
+2019-01-21 15:46:36.610 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 2, 5370);
+2019-01-21 15:46:36.613 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.613 CET [8386] DETAIL:  Key ("pNr", "matNr")=(3, 5644) already exists.
+2019-01-21 15:46:36.613 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 3, 5644);
+2019-01-21 15:46:36.618 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.618 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5929) already exists.
+2019-01-21 15:46:36.618 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 12, 5929);
+2019-01-21 15:46:36.620 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.620 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5336) already exists.
+2019-01-21 15:46:36.620 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 2, 5336);
+2019-01-21 15:46:36.622 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.622 CET [8386] DETAIL:  Key ("pNr", "matNr")=(6, 5236) already exists.
+2019-01-21 15:46:36.622 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 6, 5236);
+2019-01-21 15:46:36.628 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.628 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5546) already exists.
+2019-01-21 15:46:36.628 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 12, 5546);
+2019-01-21 15:46:36.632 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.632 CET [8386] DETAIL:  Key ("pNr", "matNr")=(10, 5938) already exists.
+2019-01-21 15:46:36.632 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 10, 5938);
+2019-01-21 15:46:36.633 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.633 CET [8386] DETAIL:  Key ("pNr", "matNr")=(11, 5409) already exists.
+2019-01-21 15:46:36.633 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 11, 5409);
+2019-01-21 15:46:36.634 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.634 CET [8386] DETAIL:  Key ("pNr", "matNr")=(7, 5664) already exists.
+2019-01-21 15:46:36.634 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 7, 5664);
+2019-01-21 15:46:36.635 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.635 CET [8386] DETAIL:  Key ("pNr", "matNr")=(9, 5930) already exists.
+2019-01-21 15:46:36.635 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 9, 5930);
+2019-01-21 15:46:36.637 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.637 CET [8386] DETAIL:  Key ("pNr", "matNr")=(6, 5255) already exists.
+2019-01-21 15:46:36.637 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 6, 5255);
+2019-01-21 15:46:36.638 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.638 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5143) already exists.
+2019-01-21 15:46:36.638 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 12, 5143);
+2019-01-21 15:46:36.642 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.642 CET [8386] DETAIL:  Key ("pNr", "matNr")=(6, 5605) already exists.
+2019-01-21 15:46:36.642 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 6, 5605);
+2019-01-21 15:46:36.645 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.645 CET [8386] DETAIL:  Key ("pNr", "matNr")=(7, 5026) already exists.
+2019-01-21 15:46:36.645 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 7, 5026);
+2019-01-21 15:46:36.648 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.648 CET [8386] DETAIL:  Key ("pNr", "matNr")=(3, 5094) already exists.
+2019-01-21 15:46:36.648 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 3, 5094);
+2019-01-21 15:46:36.649 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.649 CET [8386] DETAIL:  Key ("pNr", "matNr")=(4, 5460) already exists.
+2019-01-21 15:46:36.649 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 4, 5460);
+2019-01-21 15:46:36.652 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.652 CET [8386] DETAIL:  Key ("pNr", "matNr")=(4, 5686) already exists.
+2019-01-21 15:46:36.652 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 4, 5686);
+2019-01-21 15:46:36.652 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.652 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5098) already exists.
+2019-01-21 15:46:36.652 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 2, 5098);
+2019-01-21 15:46:36.652 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.652 CET [8386] DETAIL:  Key ("pNr", "matNr")=(6, 5733) already exists.
+2019-01-21 15:46:36.652 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 6, 5733);
+2019-01-21 15:46:36.653 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.653 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5216) already exists.
+2019-01-21 15:46:36.653 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 12, 5216);
+2019-01-21 15:46:36.653 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.653 CET [8386] DETAIL:  Key ("pNr", "matNr")=(3, 5870) already exists.
+2019-01-21 15:46:36.653 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 3, 5870);
+2019-01-21 15:46:36.653 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.653 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5147) already exists.
+2019-01-21 15:46:36.653 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 2, 5147);
+2019-01-21 15:46:36.654 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.654 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5216) already exists.
+2019-01-21 15:46:36.654 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 2, 5216);
+2019-01-21 15:46:36.659 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.659 CET [8386] DETAIL:  Key ("pNr", "matNr")=(8, 5279) already exists.
+2019-01-21 15:46:36.659 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 8, 5279);
+2019-01-21 15:46:36.659 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.659 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5547) already exists.
+2019-01-21 15:46:36.659 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 2, 5547);
+2019-01-21 15:46:36.661 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.661 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5091) already exists.
+2019-01-21 15:46:36.661 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.7, 12, 5091);
+2019-01-21 15:46:36.662 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.662 CET [8386] DETAIL:  Key ("pNr", "matNr")=(7, 5606) already exists.
+2019-01-21 15:46:36.662 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 7, 5606);
+2019-01-21 15:46:36.666 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.666 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5652) already exists.
+2019-01-21 15:46:36.666 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 2, 5652);
+2019-01-21 15:46:36.666 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.666 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5922) already exists.
+2019-01-21 15:46:36.666 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 12, 5922);
+2019-01-21 15:46:36.667 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.667 CET [8386] DETAIL:  Key ("pNr", "matNr")=(4, 5284) already exists.
+2019-01-21 15:46:36.667 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 4, 5284);
+2019-01-21 15:46:36.669 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.669 CET [8386] DETAIL:  Key ("pNr", "matNr")=(1, 5722) already exists.
+2019-01-21 15:46:36.669 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 1, 5722);
+2019-01-21 15:46:36.669 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.669 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5893) already exists.
+2019-01-21 15:46:36.669 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 2, 5893);
+2019-01-21 15:46:36.670 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.670 CET [8386] DETAIL:  Key ("pNr", "matNr")=(1, 5320) already exists.
+2019-01-21 15:46:36.670 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 1, 5320);
+2019-01-21 15:46:36.670 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.670 CET [8386] DETAIL:  Key ("pNr", "matNr")=(8, 5786) already exists.
+2019-01-21 15:46:36.670 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 8, 5786);
+2019-01-21 15:46:36.674 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.674 CET [8386] DETAIL:  Key ("pNr", "matNr")=(4, 5336) already exists.
+2019-01-21 15:46:36.674 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 4, 5336);
+2019-01-21 15:46:36.675 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.675 CET [8386] DETAIL:  Key ("pNr", "matNr")=(7, 5631) already exists.
+2019-01-21 15:46:36.675 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 7, 5631);
+2019-01-21 15:46:36.675 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.675 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5052) already exists.
+2019-01-21 15:46:36.675 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 12, 5052);
+2019-01-21 15:46:36.677 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.677 CET [8386] DETAIL:  Key ("pNr", "matNr")=(11, 5416) already exists.
+2019-01-21 15:46:36.677 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 11, 5416);
+2019-01-21 15:46:36.678 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.678 CET [8386] DETAIL:  Key ("pNr", "matNr")=(7, 5311) already exists.
+2019-01-21 15:46:36.678 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 7, 5311);
+2019-01-21 15:46:36.680 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.680 CET [8386] DETAIL:  Key ("pNr", "matNr")=(9, 5731) already exists.
+2019-01-21 15:46:36.680 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.7, 9, 5731);
+2019-01-21 15:46:36.683 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.683 CET [8386] DETAIL:  Key ("pNr", "matNr")=(4, 5369) already exists.
+2019-01-21 15:46:36.683 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 4, 5369);
+2019-01-21 15:46:36.693 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.693 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5732) already exists.
+2019-01-21 15:46:36.693 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 12, 5732);
+2019-01-21 15:46:36.697 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.697 CET [8386] DETAIL:  Key ("pNr", "matNr")=(7, 5342) already exists.
+2019-01-21 15:46:36.697 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 7, 5342);
+2019-01-21 15:46:36.700 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.700 CET [8386] DETAIL:  Key ("pNr", "matNr")=(4, 5080) already exists.
+2019-01-21 15:46:36.700 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (5.0, 4, 5080);
+2019-01-21 15:46:36.701 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.701 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5874) already exists.
+2019-01-21 15:46:36.701 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 12, 5874);
+2019-01-21 15:46:36.701 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.701 CET [8386] DETAIL:  Key ("pNr", "matNr")=(4, 5284) already exists.
+2019-01-21 15:46:36.701 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.0, 4, 5284);
+2019-01-21 15:46:36.708 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.708 CET [8386] DETAIL:  Key ("pNr", "matNr")=(4, 5394) already exists.
+2019-01-21 15:46:36.708 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 4, 5394);
+2019-01-21 15:46:36.708 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.708 CET [8386] DETAIL:  Key ("pNr", "matNr")=(3, 5699) already exists.
+2019-01-21 15:46:36.708 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 3, 5699);
+2019-01-21 15:46:36.711 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.711 CET [8386] DETAIL:  Key ("pNr", "matNr")=(1, 5151) already exists.
+2019-01-21 15:46:36.711 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 1, 5151);
+2019-01-21 15:46:36.712 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.712 CET [8386] DETAIL:  Key ("pNr", "matNr")=(10, 5685) already exists.
+2019-01-21 15:46:36.712 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 10, 5685);
+2019-01-21 15:46:36.713 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.713 CET [8386] DETAIL:  Key ("pNr", "matNr")=(11, 5329) already exists.
+2019-01-21 15:46:36.713 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 11, 5329);
+2019-01-21 15:46:36.714 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.714 CET [8386] DETAIL:  Key ("pNr", "matNr")=(3, 5519) already exists.
+2019-01-21 15:46:36.714 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 3, 5519);
+2019-01-21 15:46:36.715 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.715 CET [8386] DETAIL:  Key ("pNr", "matNr")=(3, 5999) already exists.
+2019-01-21 15:46:36.715 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 3, 5999);
+2019-01-21 15:46:36.718 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.718 CET [8386] DETAIL:  Key ("pNr", "matNr")=(1, 5829) already exists.
+2019-01-21 15:46:36.718 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 1, 5829);
+2019-01-21 15:46:36.718 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.718 CET [8386] DETAIL:  Key ("pNr", "matNr")=(1, 5082) already exists.
+2019-01-21 15:46:36.718 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 1, 5082);
+2019-01-21 15:46:36.718 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.718 CET [8386] DETAIL:  Key ("pNr", "matNr")=(9, 5237) already exists.
+2019-01-21 15:46:36.718 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 9, 5237);
+2019-01-21 15:46:36.720 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.720 CET [8386] DETAIL:  Key ("pNr", "matNr")=(9, 5712) already exists.
+2019-01-21 15:46:36.720 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 9, 5712);
+2019-01-21 15:46:36.720 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.720 CET [8386] DETAIL:  Key ("pNr", "matNr")=(9, 5891) already exists.
+2019-01-21 15:46:36.720 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 9, 5891);
+2019-01-21 15:46:36.721 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.721 CET [8386] DETAIL:  Key ("pNr", "matNr")=(10, 5602) already exists.
+2019-01-21 15:46:36.721 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 10, 5602);
+2019-01-21 15:46:36.722 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.722 CET [8386] DETAIL:  Key ("pNr", "matNr")=(7, 5242) already exists.
+2019-01-21 15:46:36.722 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 7, 5242);
+2019-01-21 15:46:36.725 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.725 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5814) already exists.
+2019-01-21 15:46:36.725 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 2, 5814);
+2019-01-21 15:46:36.728 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.728 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5468) already exists.
+2019-01-21 15:46:36.728 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 2, 5468);
+2019-01-21 15:46:36.730 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.730 CET [8386] DETAIL:  Key ("pNr", "matNr")=(9, 5503) already exists.
+2019-01-21 15:46:36.730 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 9, 5503);
+2019-01-21 15:46:36.731 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.731 CET [8386] DETAIL:  Key ("pNr", "matNr")=(2, 5094) already exists.
+2019-01-21 15:46:36.731 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 2, 5094);
+2019-01-21 15:46:36.731 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.731 CET [8386] DETAIL:  Key ("pNr", "matNr")=(8, 5790) already exists.
+2019-01-21 15:46:36.731 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 8, 5790);
+2019-01-21 15:46:36.731 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.731 CET [8386] DETAIL:  Key ("pNr", "matNr")=(1, 5197) already exists.
+2019-01-21 15:46:36.731 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 1, 5197);
+2019-01-21 15:46:36.732 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.732 CET [8386] DETAIL:  Key ("pNr", "matNr")=(6, 5483) already exists.
+2019-01-21 15:46:36.732 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 6, 5483);
+2019-01-21 15:46:36.732 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.732 CET [8386] DETAIL:  Key ("pNr", "matNr")=(6, 5462) already exists.
+2019-01-21 15:46:36.732 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 6, 5462);
+2019-01-21 15:46:36.735 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.735 CET [8386] DETAIL:  Key ("pNr", "matNr")=(3, 5764) already exists.
+2019-01-21 15:46:36.735 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 3, 5764);
+2019-01-21 15:46:36.735 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.735 CET [8386] DETAIL:  Key ("pNr", "matNr")=(3, 5664) already exists.
+2019-01-21 15:46:36.735 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (4.0, 3, 5664);
+2019-01-21 15:46:36.737 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.737 CET [8386] DETAIL:  Key ("pNr", "matNr")=(10, 5960) already exists.
+2019-01-21 15:46:36.737 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.7, 10, 5960);
+2019-01-21 15:46:36.738 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.738 CET [8386] DETAIL:  Key ("pNr", "matNr")=(12, 5790) already exists.
+2019-01-21 15:46:36.738 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 12, 5790);
+2019-01-21 15:46:36.740 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.740 CET [8386] DETAIL:  Key ("pNr", "matNr")=(6, 5893) already exists.
+2019-01-21 15:46:36.740 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.0, 6, 5893);
+2019-01-21 15:46:36.740 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.740 CET [8386] DETAIL:  Key ("pNr", "matNr")=(10, 5437) already exists.
+2019-01-21 15:46:36.740 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.0, 10, 5437);
+2019-01-21 15:46:36.744 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.744 CET [8386] DETAIL:  Key ("pNr", "matNr")=(9, 5199) already exists.
+2019-01-21 15:46:36.744 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (2.3, 9, 5199);
+2019-01-21 15:46:36.745 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.745 CET [8386] DETAIL:  Key ("pNr", "matNr")=(8, 5808) already exists.
+2019-01-21 15:46:36.745 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (1.3, 8, 5808);
+2019-01-21 15:46:36.747 CET [8386] ERROR:  duplicate key value violates unique constraint "Notenliste_pkey"
+2019-01-21 15:46:36.747 CET [8386] DETAIL:  Key ("pNr", "matNr")=(8, 5225) already exists.
+2019-01-21 15:46:36.747 CET [8386] STATEMENT:  INSERT INTO "Notenliste"("Note", "pNr", "matNr") VALUES (3.3, 8, 5225);
+2019-01-21 16:05:12.490 CET [1420] ERROR:  function top(integer) does not exist at character 8
+2019-01-21 16:05:12.490 CET [1420] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2019-01-21 16:05:12.490 CET [1420] STATEMENT:  SELECT TOP(10) FROM "Student";
+2019-01-21 16:05:20.264 CET [1420] ERROR:  syntax error at or near "FROM" at character 18
+2019-01-21 16:05:20.264 CET [1420] STATEMENT:  SELECT TOP(10)*  FROM "Student";
+2019-01-21 16:05:30.721 CET [1420] ERROR:  syntax error at or near "10" at character 12
+2019-01-21 16:05:30.721 CET [1420] STATEMENT:  SELECT TOP 10 *  FROM "Student";
+2019-01-21 17:37:33.872 CET [1395] LOG:  received fast shutdown request
+2019-01-21 17:37:33.873 CET [1395] LOG:  aborting any active transactions
+2019-01-21 17:37:33.874 CET [1420] FATAL:  terminating connection due to administrator command
+2019-01-21 17:37:33.874 CET [9009] FATAL:  terminating connection due to administrator command
+2019-01-21 17:37:33.874 CET [7768] FATAL:  terminating connection due to administrator command
+2019-01-21 17:37:33.874 CET [6317] FATAL:  terminating connection due to administrator command
+2019-01-21 17:37:33.877 CET [1395] LOG:  worker process: logical replication launcher (PID 1402) exited with exit code 1
+2019-01-21 17:37:33.877 CET [1397] LOG:  shutting down
+2019-01-21 17:37:33.889 CET [1395] LOG:  database system is shut down
+2019-01-21 17:39:03.180 CET [10128] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-21 17:39:03.180 CET [10128] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-21 17:39:03.181 CET [10128] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-21 17:39:03.210 CET [10129] LOG:  database system was shut down at 2019-01-21 17:37:33 CET
+2019-01-21 17:39:03.218 CET [10128] LOG:  database system is ready to accept connections
+2019-01-21 17:40:27.150 CET [10128] LOG:  received fast shutdown request
+2019-01-21 17:40:27.151 CET [10128] LOG:  aborting any active transactions
+2019-01-21 17:40:27.152 CET [10128] LOG:  worker process: logical replication launcher (PID 10135) exited with exit code 1
+2019-01-21 17:40:27.152 CET [10130] LOG:  shutting down
+2019-01-21 17:40:27.160 CET [10128] LOG:  database system is shut down
+2019-01-21 17:40:45.756 CET [10221] LOG:  listening on IPv6 address "::1", port 5432
+2019-01-21 17:40:45.756 CET [10221] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2019-01-21 17:40:45.757 CET [10221] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2019-01-21 17:40:45.769 CET [10222] LOG:  database system was shut down at 2019-01-21 17:40:27 CET
+2019-01-21 17:40:45.772 CET [10221] LOG:  database system is ready to accept connections

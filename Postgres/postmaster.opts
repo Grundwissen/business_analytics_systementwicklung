@@ -1,0 +1,1 @@
+/Applications/Postgres.app/Contents/Versions/10/bin/postgres "-D" "/Users/DHarun/Library/Application Support/Postgres/var-10" "-p" "5432"
