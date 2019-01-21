@@ -1,0 +1,54 @@
+postgres=# SELECT * FROM "Student";
+ matNr |           Name           |  birDate   
+-------+--------------------------+------------
+  5001 | Adolf Sontag             | 1992-10-15
+  5002 | Ingmar Dussen van        | 1974-12-28
+  5003 | Giovanna Drewes          | 1983-09-23
+  5004 | Marie-Therese Budig      | 1995-07-30
+  5005 | Martin Jungfer           | 1988-11-08
+  5006 | Gesche Beckmann          | 1988-03-28
+  5007 | Karl Henschel            | 1985-01-07
+  5008 | Cathleen Scheuermann     | 1997-04-23
+  5009 | Liliana Rosemann         | 1989-01-11
+  5010 | Klaus Dieter Wilmsen     | 1996-01-13
+  5011 | Axel Baum                | 1977-03-08
+  5012 | Harri Gehringer          | 1980-12-13
+  5013 | Hilde Schulz             | 1971-06-28
+  5014 | Anne-Rose Wieloch        | 1994-09-05
+  5015 | Georgia Preiß            | 1991-03-17
+  5016 | Gordana Niemeier         | 1987-07-24
+  5017 | Heidelinde Boucsein      | 1998-03-28
+  5018 | Karl-Peter Wagenknecht   | 1971-03-26
+  5019 | Christoph Ritter         | 1974-02-16
+  5020 | Ruthild Vogt             | 1973-02-07
+  5021 | Meral Schüler            | 1980-08-16
+  5022 | Hans-Albert Hauffer      | 1996-10-10
+  5023 | Detlev Lange             | 1992-12-01
+  5024 | Petros Mangold           | 1983-04-02
+  5025 | Jonas Langern            | 1981-10-18
+  5026 | Marie-Louise Noack       | 1976-02-10
+  5027 | Filiz Mitschke           | 1971-01-25
+  5028 | Marian Sorgatz           | 1978-06-11
+  5029 | Katja Bruder             | 1980-03-14
+  5030 | Kordula Gehringer        | 1973-10-23
+  5031 | Sükrü Faust              | 1978-01-12
+  5032 | Mathias Reising          | 1975-04-26
+  5033 | Leo Cichorius            | 1973-08-11
+  5034 | Joachim Häring           | 1975-05-24
+  5035 | Anastasia Meister        | 1990-08-02
+  5036 | Irmgard Speer            | 1980-02-04
+  5037 | Liselotte Christoph      | 1997-09-07
+  5038 | Adelbert Mies            | 1988-04-16
+  5039 | Meryem Wohlgemut         | 1993-09-28
+  5040 | Maria-Theresia Döhn      | 1972-03-28
+  5041 | Hans-Dietrich Aumann     | 1998-08-12
+  5042 | Isabelle Hartung         | 1989-10-01
+  5043 | Gertraude Gude           | 1997-09-21
+  5044 | Celal Roht               | 1974-10-27
+  5045 | Heidi Reising            | 1995-01-20
+  5046 | Elke Holzapfel           | 1976-01-28
+  5047 | Wencke Jacob             | 1991-02-02
+  5048 | Franz-Xaver Beyer        | 1970-02-08
+  5049 | Elzbieta Stroh           | 1980-10-12
+  5050 | Wolfgang Tintzmann       | 1975-03-19
+  5051 | Wladimir Rörricht        | 1984-07-11
