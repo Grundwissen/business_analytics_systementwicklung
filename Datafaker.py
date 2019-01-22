@@ -1,10 +1,10 @@
 import DB
 db = DB.DatabaseConnection()
-
+#import Bibliothek
 from faker import Faker
 fake = Faker('de_DE')
 
-
+#Start der Matrikelnummer
 matrikelnummer = 5000
 
 # Studierende erstellen
